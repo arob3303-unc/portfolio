@@ -71,6 +71,9 @@ const Modal = () => {
                     - It was for fun and I enjoyed seeing people interact with something I
                     developed
                   </li>
+                  <li className="modal-project-textcolor1">
+                    - Counted down the days til the next Call of Duty game released.
+                  </li>
                 </ul>
               </div>
             </div>
