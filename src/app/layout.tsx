@@ -29,7 +29,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             {/* Linkedin logo link*/}
             <a href='https://www.linkedin.com/in/austin-robinson-60617b296/' target='blank' rel='noopener noreferrer'>
               <Image
-                src='/Ln-pic.png'
+                src='/ln-pic.png'
                 alt='Linkedin Link'
                 width={30} height={30}
               />
