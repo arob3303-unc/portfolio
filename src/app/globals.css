@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100%; /* Ensures the body takes up the full viewport height */
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -14,8 +21,316 @@
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
+.header {
+  color: white;
+  text-align: center;
+  background-color: #2C3E50;
+  padding: .3rem;
   font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+.header h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.nav {
+  color: white;
+  text-align: center;
+  background-color: #2C3E50;
+  padding: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: .2rem;
+  position: sticky;
+  top: 0;
+  margin: 0 auto;
+}
+
+.nav-list {
+  justify-content: center;
+  display: flex;
+  background-color: #2C3E50;
+  gap: .3rem;
+  font-family: Arial, Helvetica, sans-serif;
+  list-style: none;
+}
+
+.nav-list li a {
+  display: inline-block; /* Make anchor tags block-level so border is applied properly */
+  padding: 8px 16px; /* Add some padding to the links */
+  border: 2px solid transparent; /* Set a default border color (transparent for non-hover state) */
+  border-radius: 5px; /* Optional: rounded corners */
+  text-decoration: none; /* Remove underline */
+  color: #FFFFFF; /* White text */
+  transition: border-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.nav-list li a:hover {
+  border-color: #826a82; /* Border color when hovering (blue in this case) */
+  color: #826a82; /* Change text color on hover (optional) */
+}
+
+
+/* src/app/globals.css */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #2C3E50;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+a:hover {
+  color: #826a82; /* Purple on hover */
+}
+
+#about {
+  background-color: #1a2631;
+  color: white;
+}
+
+.about-content {
+  display: flex; /* Flexbox to align items side by side */
+  justify-content: space-between;
+  align-items: center; /* Center items vertically */
+  padding-top: 1rem;
+}
+
+.about-text-section {
+  flex: 1;
+  margin-right: 20px; /* Add space between text and image */
+  margin-left: 30px;
+  padding: 20px;
+  background-color: #34495E; /* Darker background for the text box */
+  border: 2px solid #826a82; /* Blue border around the box */
+  border-radius: 15px; /* Curved corners for the box */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: shadow effect for depth */
+  font-size: 1.3rem;
+}
+
+h2 {
+  text-align: left;
+}
+h1 {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.about-image img {
+  max-width: 100%; /* Prevent overflow */
+  margin-right: 30px;
+  height: auto; /* Maintain aspect ratio */
+  width: 365px; /* Set a fixed width for the image */
+  border: 2px solid #826a82; /* Border around the image (blue) */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 20px 84px rgba(0, 0, 0, 0.2); /* Optional: shadow around the image */
+  margin-left: 20px; /* Space between the image and the text */
+  animation: fadeIn 7s ease;
+}
+
+#projects {
+  color: white;
+  text-align: center;
+  margin-top: 2.5rem;
+  margin-bottom: 11rem;
+}
+
+/* MODAL SECTION */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  inset: 0;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, .6);
+  height: 100%;
+  width: 100%;
+  z-index: 999;
+
+  
+}
+
+.modal-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: auto;
+  height: auto;
+  padding: 1rem;
+  background-color: rgb(17, 16, 16);
+  opacity: 100%;
+  z-index: 1000;
+}
+
+.modal-project-img {
+  width: 800px;
+  height: auto;
+  object-fit: cover;
+}
+
+.modal-project-text {
+  flex: 1;
+  margin-right: 20px; /* Add space between text and image */
+  margin-left: 30px;
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #34495E; /* Darker background for the text box */
+  border: 2px solid #826a82; /* Blue border around the box */
+  border-radius: 15px; /* Curved corners for the box */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: shadow effect for depth */
+  font-size: 1.3rem;
+  text-align: left;
+  height: 50%;
+  flex-direction: column;
+}
+
+.modal-close-button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+.modal-project-textcolor1 {
+  color:white
+}
+
+.modal-project-textcolor2 {
+  color:antiquewhite
+}
+
+.grid {
+  padding: 1.25rem;
+}
+.project-box {
+  background-color: #1a2631;
+  padding: 2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.project-box:hover {
+  background-color: #826a82;
+}
+
+.project-text {
+  font-size: 1.25rem;
+}
+
+.project-title {
+  font-weight: bold;
+  font-size: 3rem;
+  padding-top: 5rem;
+}
+
+.project-sub-text {
+  color: lightgray;
+  font-size: smaller;
+  margin-top: 1rem;
+}
+
+#contact-sec {
+  color: white;
+  text-align: center;
+  margin-top: 5rem;
+  margin-bottom: 0rem;
+  background-color: #1a2631;
+  padding: 0;
+}
+
+.contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 75vh;
+  background-color: #1a2631;
+}
+
+form {
+  max-width: 600px;
+  width: 100%;
+  background: #ffffff;
+  padding: 25px 25px 25px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+  color: #333;
+  margin: 25px;
+}
+form h2 {
+  font-size: 30px;
+  text-align: center;
+}
+
+form .input-box {
+  margin-top: 20px;
+}
+
+.input-box .field {
+  width: 100%;
+  height: 50px;
+  background: transparent;
+  border: 2px solid #ddd;
+  outline: none;
+  border-radius: 6px;
+  padding: 15px;
+  font-size: 16px;
+  color: #333;
+  margin-top: 8px;
+}
+
+.input-box .field.mess {
+  height: 200px;
+  resize: none;
+}
+
+form button {
+  width: 100%;
+  height: 55px;
+  background: #826a82;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+  cursor: pointer;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 500;
+  margin-top: 25px;
+  transition: .5s;
+}
+
+form button:hover {
+  background: #382138;
+}
+
+.footer-images {
+  display: flex;
+  justify-content: left;
+  gap: 10px;
+  background-color: #2C3E50;
+  padding: .6rem;
 }
