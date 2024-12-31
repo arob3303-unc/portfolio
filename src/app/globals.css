@@ -185,9 +185,18 @@ h1 {
 }
 
 .modal-project-img {
-  width: 800px;
+  max-width: 100%;
   height: auto;
   object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+.modal-link {
+  text-align: center;
+  color: rgb(196, 70, 70);
+  margin-top: 1rem;
+  font-size: larger;
+  font-weight: bold;
 }
 
 .modal-project-text {
@@ -249,7 +258,7 @@ h1 {
 }
 
 .project-sub-text {
-  color: lightgray;
+  color: white;
   font-size: smaller;
   margin-top: 1rem;
 }
@@ -274,11 +283,11 @@ h1 {
 form {
   max-width: 600px;
   width: 100%;
-  background: #ffffff;
+  background: #34495E;
   padding: 25px 25px 25px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, .1);
-  color: #333;
+  color: white;
   margin: 25px;
 }
 form h2 {
@@ -294,12 +303,12 @@ form .input-box {
   width: 100%;
   height: 50px;
   background: transparent;
-  border: 2px solid #ddd;
+  border: 2px solid black;
   outline: none;
   border-radius: 6px;
   padding: 15px;
   font-size: 16px;
-  color: #333;
+  color: white;
   margin-top: 8px;
 }
 

@@ -9,7 +9,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <body>
         {/* Global header */}
         <header className="header">
-          <h1>Welcome to My Portfolio</h1>
+          <h1>Welcome to My Website</h1>
         </header>
 
         {/* Main content */}
