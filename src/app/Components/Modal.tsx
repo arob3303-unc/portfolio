@@ -43,7 +43,7 @@ const Modal = () => {
   }, [handleClickOutside, isModalOpen]);
 
   return (
-    <div className="grid grid-cols-3 gap-6">
+    <div className="box-grid">
       {/* Project Boxes */}
       <div
         className="project-box"
