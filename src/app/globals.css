@@ -433,9 +433,15 @@ form button:hover {
   }
 
   .modal-project-text {
-    font-size: 1.3rem;
+    font-size: .5rem;
   }
 
+  .modal-box {
+    position: fixed;
+    width: 350;
+    height: 600;
+    padding: 1rem;
+  }
 
   .project-text {
     font-size: 1.3rem;
