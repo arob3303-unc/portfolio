@@ -90,7 +90,11 @@ const Modal = () => {
         }
       >
         <h3 className="project-text">HayBale Game</h3>
-        <h1 className="project-sub-text">PostgreSQL, React, Supabase, APIs, Phaser.js</h1>
+        <div className="modal-box-imgs">
+          <Image src="/post.png" alt="PostgreSQL" width={40} height={50} />
+          <Image src="/React.png" alt="ReactJS" width={40} height={50} />
+          <Image src="/OpenAPI.png" alt="APIs" width={40} height={50} />
+        </div>
       </div>
 
       {/* Add More Project Boxes */}
@@ -121,7 +125,10 @@ const Modal = () => {
         }
       >
         <h3 className="project-text">Discord Bot</h3>
-        <h1 className="project-sub-text">APIs, Python</h1>
+        <div className="modal-box-imgs">
+          <Image src="/Python.png" alt="Python" width={40} height={50} />
+          <Image src="/OpenAPI.png" alt="APIs" width={40} height={50} />
+        </div>
       </div>
 
       <div
@@ -145,7 +152,9 @@ const Modal = () => {
         }
       >
         <h3 className="project-text">2D Game</h3>
-        <h1 className="project-sub-text">Java</h1>
+        <div className="modal-box-imgs">
+          <Image src="/Java.png" alt="Java" width={40} height={50} />
+        </div>
       </div>
 
       <div
@@ -167,7 +176,12 @@ const Modal = () => {
         }
       >
         <h3 className="project-text">News Scraper</h3>
-        <h1 className="project-sub-text">APIs, HTML, CSS, Javascript</h1>
+        <div className="modal-box-imgs">
+          <Image src="/OpenAPI.png" alt="APIs" width={40} height={50} />
+          <Image src="/HTML5.png" alt="HTML" width={40} height={50} />
+          <Image src="/CSS3.png" alt="CSS" width={40} height={50} />
+          <Image src="/JavaScript.png" alt="JS" width={40} height={50} />
+        </div>
       </div>
 
 
@@ -191,7 +205,12 @@ const Modal = () => {
         }
       >
         <h3 className="project-text">Wildfire Detection Project</h3>
-        <h1 className="project-sub-text">ML, CNN, PyTorch, Python, Kaggle</h1>
+        <div className="modal-box-imgs">
+          <Image src="/ML.png" alt="ML" width={40} height={50} />
+          <Image src="/PyTorch.png" alt="Pytorch" width={40} height={50} />
+          <Image src="/Python.png" alt="Python" width={40} height={50} />
+          <Image src="/Kaggle.png" alt="Kaggle" width={40} height={50} />
+        </div>
       </div>
 
 
@@ -216,7 +235,11 @@ const Modal = () => {
         }
       >
         <h3 className="project-text">Drone Website</h3>
-        <h1 className="project-sub-text">HTML, CSS, Javascript</h1>
+        <div className="modal-box-imgs">
+          <Image src="/HTML5.png" alt="HTML" width={40} height={50} />
+          <Image src="/CSS3.png" alt="CSS" width={40} height={50} />
+          <Image src="/JavaScript.png" alt="JS" width={40} height={50} />
+        </div>
       </div>
 
 
@@ -241,7 +264,9 @@ const Modal = () => {
         }
       >
         <h3 className="project-text">1v1 PyGame</h3>
-        <h1 className="project-sub-text">Python, PyGame</h1>
+        <div className="modal-box-imgs">
+          <Image src="/Python.png" alt="Python" width={40} height={50} />
+        </div>
       </div>
 
 
@@ -265,7 +290,9 @@ const Modal = () => {
         }
       >
         <h3 className="project-text">Python Autoclicker</h3>
-        <h1 className="project-sub-text">Python, Automation</h1>
+        <div className="modal-box-imgs">
+          <Image src="/Python.png" alt="Python" width={40} height={50} />
+        </div>
       </div>
 
 
@@ -296,7 +323,12 @@ const Modal = () => {
         }
       >
         <h3 className="project-text">Portfolio Website</h3>
-        <h1 className="project-sub-text">React, Next.js, TypeScript, Vercel</h1>
+        <div className="modal-box-imgs">
+          <Image src="/React.png" alt="React" width={40} height={50} />
+          <Image src="/Next.js.png" alt="CSS" width={40} height={50} />
+          <Image src="/TypeScript.png" alt="TS" width={40} height={50} />
+          <Image src="/Vercel.png" alt="Vercel" width={40} height={50} />
+        </div>
       </div>
 
 
