@@ -223,7 +223,7 @@ h1 {
   height: 50%;
   flex-direction: column;
 
-  max-height: 200px;
+  max-height: 300px;
   overflow-y: auto;
   line-height: 1.5;
   
@@ -390,7 +390,7 @@ form button:hover {
     margin-left: 3rem;
     margin-bottom: 3rem;
     padding: 1rem;
-    font-size: 1rem;
+    font-size: .75rem;
   }
 
   .about-content {
@@ -407,7 +407,7 @@ form button:hover {
   }
 
   .modal-project-text {
-    font-size: 1rem;
+    font-size: .75rem;
   }
 
   .modal-box {
