@@ -51,7 +51,7 @@ const Modal = () => {
           openModal(
             <div className="modal-project-overlay">
               <div className="modal-project-img">
-                <Image src="/project1.png" alt="Project 1 Image"
+                <Image className="modal-img-height" src="/project1.png" alt="Project 1 Image"
                   layout="intrinsic"
                   width={isEnlarged ? 1200 : 1800} 
                   height={isEnlarged ? 1000 : 1750} 
@@ -104,7 +104,7 @@ const Modal = () => {
           openModal(
             <div className="modal-project-overlay">
               <div className="modal-project-img">
-                <Image src="/bot.png" alt="Project 2 Image" width={1800} height={1750} />
+                <Image className="modal-img-height" src="/bot.png" alt="Project 2 Image" width={1800} height={1750} />
               </div>
               <div className="modal-project-text">
                 <ul>
@@ -137,7 +137,7 @@ const Modal = () => {
           openModal(
             <div className="modal-project-overlay">
               <div className="modal-project-img">
-                <Image src="/2Dgame.png" alt="Project 3 Image" width={1800} height={1750} />
+                <Image className="modal-img-height" src="/2Dgame.png" alt="Project 3 Image" width={1800} height={1750} />
               </div>
               <div className="modal-project-text">
                 <ul>
@@ -163,7 +163,7 @@ const Modal = () => {
           openModal(
             <div className="modal-project-overlay">
               <div className="modal-project-img">
-                <Image src="/news.png" alt="Project 4 Image" width={1800} height={1750} />
+                <Image className="modal-img-height" src="/news.png" alt="Project 4 Image" width={1800} height={1750} />
               </div>
               <div className="modal-project-text">
                 <ul>
@@ -220,7 +220,7 @@ const Modal = () => {
           openModal(
             <div className="modal-project-overlay">
               <div className="modal-project-img">
-                <Image src="/drone.png" alt="Project 3 Image" width={1800} height={1750} />
+                <Image className="modal-img-height" src="/drone.png" alt="Project 3 Image" width={1800} height={1750} />
               </div>
               <div className="modal-project-text">
                 <ul>
@@ -249,7 +249,7 @@ const Modal = () => {
           openModal(
             <div className="modal-project-overlay">
               <div className="modal-project-img">
-                <Image src="/pygame.png" alt="Project 7 Image" width={1800} height={1750} />
+                <Image className="modal-img-height" src="/pygame.png" alt="Project 7 Image" width={1800} height={1750} />
               </div>
               <div className="modal-project-text">
                 <ul>
@@ -277,7 +277,7 @@ const Modal = () => {
           openModal(
             <div className="modal-project-overlay">
               <div className="modal-project-img">
-                <Image src="/auto.png" alt="Project 8 Image" width={1800} height={1750} />
+                <Image className="modal-img-height" src="/auto.png" alt="Project 8 Image" width={1800} height={1750} />
               </div>
               <div className="modal-project-text">
                 <ul>
@@ -303,7 +303,7 @@ const Modal = () => {
           openModal(
             <div className="modal-project-overlay">
               <div className="modal-project-img">
-                <Image src="/website.png" alt="Project 3 Image" width={800} height={750} />
+                <Image className="modal-img-height" src="/website.png" alt="Project 3 Image" width={800} height={750} />
               </div>
               <div className="modal-project-text">
                 <ul>

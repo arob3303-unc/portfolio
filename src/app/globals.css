@@ -192,9 +192,13 @@ h1 {
 
 .modal-project-img {
   max-width: 100%;
-  height: auto;
+  height: 30%;
   object-fit: cover;
   transition: all 0.3s ease;
+}
+
+.modal-img-height {
+  max-height: 400px;
 }
 
 .modal-link {
@@ -213,12 +217,18 @@ h1 {
   padding: 1rem;
   background-color: #34495E; /* Darker background for the text box */
   border: 2px solid #826a82; /* Blue border around the box */
-  border-radius: 15px; /* Curved corners for the box */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: shadow effect for depth */
   font-size: 1.3rem;
   text-align: left;
   height: 50%;
   flex-direction: column;
+
+  max-height: 200px;
+  overflow-y: auto;
+  line-height: 1.5;
+  
+  scrollbar-width: thin;            /* “auto” or “thin” */
+  scrollbar-color: #888 #34495E;       /* thumb color, track color */
 }
 
 .modal-close-button {
@@ -448,13 +458,13 @@ form button:hover {
   }
 
   .modal-project-text {
-    font-size: .5rem;
+    font-size: 1.5rem;
   }
 
   .modal-box {
     position: fixed;
-    width: 350;
-    height: 600;
+    width: 75%;
+    height: 75%;
     padding: 1rem;
   }
 
