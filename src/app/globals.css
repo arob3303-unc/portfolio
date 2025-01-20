@@ -21,6 +21,10 @@ html, body {
   }
 }
 
+.bold {
+  font-weight: bold;
+}
+
 .header {
   color: white;
   text-align: center;
@@ -201,6 +205,14 @@ h1 {
   max-height: 400px;
 }
 
+.modal-box-icons {
+  transition: transform 0.3s ease;
+}
+
+.modal-box-icons:hover {
+  transform: scale(1.2);
+}
+
 .modal-link {
   text-align: center;
   color: rgb(196, 70, 70);
@@ -227,8 +239,8 @@ h1 {
   overflow-y: auto;
   line-height: 1.5;
   
-  scrollbar-width: thin;            /* “auto” or “thin” */
-  scrollbar-color: #888 #34495E;       /* thumb color, track color */
+  scrollbar-width: thin;
+  scrollbar-color: #888 #34495E;
 }
 
 .modal-close-button {

@@ -51,7 +51,7 @@ const Modal = () => {
           openModal(
             <div className="modal-project-overlay">
               <div className="modal-project-img">
-                <Image className="modal-img-height" src="/project1.png" alt="Project 1 Image"
+                <Image src="/project1.png" alt="Project 1 Image"
                   layout="intrinsic"
                   width={isEnlarged ? 1200 : 1800} 
                   height={isEnlarged ? 1000 : 1750} 
@@ -91,9 +91,9 @@ const Modal = () => {
       >
         <h3 className="project-text">HayBale Game</h3>
         <div className="modal-box-imgs">
-          <Image src="/post.png" alt="PostgreSQL" width={40} height={50} />
-          <Image src="/React.png" alt="ReactJS" width={40} height={50} />
-          <Image src="/OpenAPI.png" alt="APIs" width={40} height={50} />
+          <Image className="modal-box-icons" src="/post.png" alt="PostgreSQL" title="PostgreSQL" width={40} height={50} />
+          <Image className="modal-box-icons" src="/React.png" alt="ReactJS" width={40} height={50} />
+          <Image className="modal-box-icons" src="/OpenAPI.png" alt="APIs" width={40} height={50} />
         </div>
       </div>
 
@@ -126,8 +126,8 @@ const Modal = () => {
       >
         <h3 className="project-text">Discord Bot</h3>
         <div className="modal-box-imgs">
-          <Image src="/Python.png" alt="Python" width={40} height={50} />
-          <Image src="/OpenAPI.png" alt="APIs" width={40} height={50} />
+          <Image className="modal-box-icons" src="/Python.png" alt="Python" width={40} height={50} />
+          <Image className="modal-box-icons" src="/OpenAPI.png" alt="APIs" width={40} height={50} />
         </div>
       </div>
 
@@ -153,7 +153,7 @@ const Modal = () => {
       >
         <h3 className="project-text">2D Game</h3>
         <div className="modal-box-imgs">
-          <Image src="/Java.png" alt="Java" width={40} height={50} />
+          <Image className="modal-box-icons" src="/Java.png" alt="Java" width={40} height={50} />
         </div>
       </div>
 
@@ -177,10 +177,10 @@ const Modal = () => {
       >
         <h3 className="project-text">News Scraper</h3>
         <div className="modal-box-imgs">
-          <Image src="/OpenAPI.png" alt="APIs" width={40} height={50} />
-          <Image src="/HTML5.png" alt="HTML" width={40} height={50} />
-          <Image src="/CSS3.png" alt="CSS" width={40} height={50} />
-          <Image src="/JavaScript.png" alt="JS" width={40} height={50} />
+          <Image className="modal-box-icons" src="/OpenAPI.png" alt="APIs" width={40} height={50} />
+          <Image className="modal-box-icons" src="/HTML5.png" alt="HTML" width={40} height={50} />
+          <Image className="modal-box-icons" src="/CSS3.png" alt="CSS" width={40} height={50} />
+          <Image className="modal-box-icons" src="/JavaScript.png" alt="JS" width={40} height={50} />
         </div>
       </div>
 
@@ -206,10 +206,10 @@ const Modal = () => {
       >
         <h3 className="project-text">Wildfire Detection Project</h3>
         <div className="modal-box-imgs">
-          <Image src="/ML.png" alt="ML" width={40} height={50} />
-          <Image src="/PyTorch.png" alt="Pytorch" width={40} height={50} />
-          <Image src="/Python.png" alt="Python" width={40} height={50} />
-          <Image src="/Kaggle.png" alt="Kaggle" width={40} height={50} />
+          <Image className="modal-box-icons" src="/ML.png" alt="ML" width={40} height={50} />
+          <Image className="modal-box-icons" src="/PyTorch.png" alt="Pytorch" width={40} height={50} />
+          <Image className="modal-box-icons" src="/Python.png" alt="Python" width={40} height={50} />
+          <Image className="modal-box-icons" src="/Kaggle.png" alt="Kaggle" width={40} height={50} />
         </div>
       </div>
 
@@ -236,9 +236,9 @@ const Modal = () => {
       >
         <h3 className="project-text">Drone Website</h3>
         <div className="modal-box-imgs">
-          <Image src="/HTML5.png" alt="HTML" width={40} height={50} />
-          <Image src="/CSS3.png" alt="CSS" width={40} height={50} />
-          <Image src="/JavaScript.png" alt="JS" width={40} height={50} />
+          <Image className="modal-box-icons" src="/HTML5.png" alt="HTML" width={40} height={50} />
+          <Image className="modal-box-icons" src="/CSS3.png" alt="CSS" width={40} height={50} />
+          <Image className="modal-box-icons" src="/JavaScript.png" alt="JS" width={40} height={50} />
         </div>
       </div>
 
@@ -265,7 +265,7 @@ const Modal = () => {
       >
         <h3 className="project-text">1v1 PyGame</h3>
         <div className="modal-box-imgs">
-          <Image src="/Python.png" alt="Python" width={40} height={50} />
+          <Image className="modal-box-icons" src="/Python.png" alt="Python" width={40} height={50} />
         </div>
       </div>
 
@@ -291,7 +291,7 @@ const Modal = () => {
       >
         <h3 className="project-text">Python Autoclicker</h3>
         <div className="modal-box-imgs">
-          <Image src="/Python.png" alt="Python" width={40} height={50} />
+          <Image className="modal-box-icons" src="/Python.png" alt="Python" width={40} height={50} />
         </div>
       </div>
 
@@ -324,10 +324,10 @@ const Modal = () => {
       >
         <h3 className="project-text">Portfolio Website</h3>
         <div className="modal-box-imgs">
-          <Image src="/React.png" alt="React" width={40} height={50} />
-          <Image src="/Next.js.png" alt="CSS" width={40} height={50} />
-          <Image src="/TypeScript.png" alt="TS" width={40} height={50} />
-          <Image src="/Vercel.png" alt="Vercel" width={40} height={50} />
+          <Image className="modal-box-icons" src="/React.png" alt="React" width={40} height={50} />
+          <Image className="modal-box-icons" src="/Next.js.png" alt="CSS" width={40} height={50} />
+          <Image className="modal-box-icons" src="/TypeScript.png" alt="TS" width={40} height={50} />
+          <Image className="modal-box-icons" src="/Vercel.png" alt="Vercel" width={40} height={50} />
         </div>
       </div>
 

@@ -22,7 +22,8 @@ const Home = () => {
         <div className="about-content">
           <div className="about-text-section">
             <h1 className='about-text'>Hi! It is me, Austin!</h1>
-            <h2 className='about-text'>I’m a passionate student exploring the intersection of economics and computer science, driven by a deep curiosity to understand how the world works. My interests lie in leveraging technology to solve meaningful problems, whether it’s unraveling complex systems or creating innovative solutions. I enjoy diving into challenges, learning new concepts, and applying them to make a positive impact.</h2>
+            <h2 className='about-text'>I’m a passionate student studying Economics and Computer Science at the University of North Carolina Chapel Hill. I love exploring the intersection of economics and computer science, driven by a deep curiosity to understand how the world works. My interests lie in leveraging technology to solve meaningful problems, whether it’s unraveling complex systems or creating innovative solutions. I enjoy diving into challenges, learning new concepts, and applying them to make a positive impact.</h2>
+            <h2 className='about-text'>I am <span className='bold'>currently</span> looking for internships in Software Development. </h2>
           </div>
           <div className="about-image">
             <Image src="/me.jpeg" alt="AI" height={300} width={300}/>
