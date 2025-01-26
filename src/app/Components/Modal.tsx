@@ -51,7 +51,7 @@ const Modal = () => {
           openModal(
             <div className="modal-project-overlay">
               <div className="modal-project-img">
-                <Image src="/project1.png" alt="Project 1 Image"
+                <Image src="/project1.png" alt="Project 1 Image" className="modal-img-height"
                   layout="intrinsic"
                   width={isEnlarged ? 1200 : 1800} 
                   height={isEnlarged ? 1000 : 1750} 

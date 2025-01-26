@@ -13,6 +13,9 @@ const Home = () => {
             <li><a href="#about" className="hover">About Me</a></li>
             <li><a href="#projects" className="hover">Projects</a></li>
             <li><a href="#contact-sec" className="hover">Contact Me</a></li>
+            <li><a href="/austin_resume.pdf" download={"austin_resume.pdf"}
+            className='resume'
+            >Download Resume</a></li>
           </ul>
         </nav>
       </header>
@@ -36,7 +39,7 @@ const Home = () => {
 
       {/* Projects Section */}
       <section id="projects">
-        <h1 className="project-title">My Projects</h1>
+        <h1 className="project-title">My Projects.</h1>
         <Modal />
       </section>
 

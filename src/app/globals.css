@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Wittgenstein:ital,wght@0,400..900;1,400..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -13,6 +15,7 @@ html, body {
   --background: #ffffff;
   --foreground: #171717;
 }
+
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -30,7 +33,7 @@ html, body {
   text-align: center;
   background-color: #2C3E50;
   padding: .3rem;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Wittgenstein", serif;
   margin: 0;
 }
 .header h1 {
@@ -72,6 +75,19 @@ html, body {
 .nav-list li a:hover {
   border-color: #826a82; /* Border color when hovering (blue in this case) */
   color: #826a82; /* Change text color on hover (optional) */
+}
+
+.resume {
+  padding: 0.5rem 1rem;
+  background-color: #1a2631;
+  color: white;
+  font-weight: 450;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  transition: background-color 0.3s ease;
 }
 
 
@@ -299,7 +315,8 @@ h1 {
 .project-title {
   font-weight: bold;
   font-size: 3rem;
-  padding-top: 5rem;
+  padding-top: 1rem;
+  font-family: "Wittgenstein", serif;
 }
 
 .project-sub-text {
@@ -338,6 +355,8 @@ form {
 form h2 {
   font-size: 30px;
   text-align: center;
+  font-family: "Wittgenstein", serif;
+  font-weight: 800;
 }
 
 form .input-box {
@@ -454,7 +473,7 @@ form button:hover {
     margin-top: 2rem;
   }
   .header h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 
   .about-text-section {
@@ -471,12 +490,17 @@ form button:hover {
 
   .modal-project-text {
     font-size: 1.5rem;
+    max-height: 150px;
+  }
+
+  .modal-img-height {
+    max-height: 300px;
   }
 
   .modal-box {
     position: fixed;
-    width: 75%;
-    height: 75%;
+    width: 80%;
+    height: 90%;
     padding: 1rem;
   }
 
