@@ -204,9 +204,9 @@ const Modal = () => {
           )
         }
       >
-        <h3 className="project-text">Wildfire Detection Project</h3>
+        <h3 className="project-text">Stock Market Algorithm</h3>
         <div className="modal-box-imgs">
-          <Image className="modal-box-icons" src="/ML.png" alt="ML" width={40} height={50} />
+          <Image className="modal-box-icons" src="/algo.png" alt="ML" width={40} height={50} />
           <Image className="modal-box-icons" src="/PyTorch.png" alt="Pytorch" width={40} height={50} />
           <Image className="modal-box-icons" src="/Python.png" alt="Python" width={40} height={50} />
           <Image className="modal-box-icons" src="/Kaggle.png" alt="Kaggle" width={40} height={50} />
