@@ -190,14 +190,19 @@ const Modal = () => {
         onClick={() =>
           openModal(
             <div className="modal-project-overlay">
-              {/*
+              {
               <div className="modal-project-img">
-                <Image src="./" alt="Project 5 Image" width={1800} height={1750} />
+                <Image src="/algo.png" alt="Project 5 Image" width={1800} height={1750} />
               </div>
-              */}
+              }
               <div className="modal-project-text">
                 <ul>
-                  <li className='modal-project-textcolor1 text-center' >Still being developed!</li>
+                  <li className='modal-project-textcolor1 text-center' >-	Developed an algorithmic trading strategy using pandas and the Yahoo Finance API to execute buy/sell decisions based on 50-day and 200-day moving averages.</li>
+                  <li className='modal-project-textcolor2 text-center' >-	Accounted for transaction costs (0.04%) to simulate realistic trading conditions.</li>
+                  <li className='modal-project-textcolor1 text-center' >-	Result: Backtested strategy yielded a 366.32% return on Zoom (ZM) while demonstrating the impact of transaction costs (-3.13% on Nvidia), highlighting the importance of fee management. Nvidia returned a 0.08% return if no transaction costs were accounted for.</li>
+                  <li className='modal-project-textcolor2 text-center' >BACKTESTING: Strategy to ensure profitable results- -	Backtested the above algorithm over a 10-year period (2015–2025), comparing performance against a buy-and-hold strategy.</li>
+                  <li className='modal-project-textcolor1 text-center' >-	Result: Algorithm provided a slight outperformance in certain scenarios and demonstrated potential for further optimization with additional parameters being added and accounting for more common transaction costs (brokerage fees, slippage fees, etc.). </li>
+                  <li className='modal-project-textcolor2 text-center' >-	Insight: Zoom experienced a significant surge in share price during the COVID-19 pandemic, followed by a steady decline post-pandemic. This algorithm is well-suited for capturing gains during such "boom" periods and managing trades over the following decade. Given the current unprecedented rise in share prices of several AI companies, applying this strategy to AI stocks could potentially yield profitable results.</li>
                 </ul>
               </div>
             </div>
@@ -206,10 +211,8 @@ const Modal = () => {
       >
         <h3 className="project-text">Stock Market Algorithm</h3>
         <div className="modal-box-imgs">
-          <Image className="modal-box-icons" src="/algo.png" alt="ML" width={40} height={50} />
-          <Image className="modal-box-icons" src="/PyTorch.png" alt="Pytorch" width={40} height={50} />
           <Image className="modal-box-icons" src="/Python.png" alt="Python" width={40} height={50} />
-          <Image className="modal-box-icons" src="/Kaggle.png" alt="Kaggle" width={40} height={50} />
+          <Image className="modal-box-icons" src="/OpenAPI.png" alt="APIs" width={40} height={50} />
         </div>
       </div>
 
@@ -328,6 +331,7 @@ const Modal = () => {
           <Image className="modal-box-icons" src="/Next.js.png" alt="CSS" width={40} height={50} />
           <Image className="modal-box-icons" src="/TypeScript.png" alt="TS" width={40} height={50} />
           <Image className="modal-box-icons" src="/Vercel.png" alt="Vercel" width={40} height={50} />
+          <Image className="modal-box-icons" src="/CSS3.png" alt="CSS" width={40} height={50} />
         </div>
       </div>
 
