@@ -50,6 +50,7 @@ const Modal = () => {
         onClick={() =>
           openModal(
             <div className="modal-project-overlay">
+              <div className="modal-title"> Project One </div>
               <div className="modal-project-img">
                 <Image src="/project1.png" alt="Project 1 Image" className="modal-img-height"
                   layout="intrinsic"

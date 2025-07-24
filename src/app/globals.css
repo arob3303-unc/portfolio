@@ -95,6 +95,8 @@ html, body {
 body {
   font-family: 'Arial', sans-serif;
   background-color: #2C3E50;
+  max-width: 1366px;
+  margin: 0 auto;
 }
 
 h1, h2 {
@@ -192,7 +194,9 @@ h1 {
   height: 100%;
   width: 100%;
   z-index: 999;
-
+  max-width: 960px;
+  max-height: 440px;
+  margin: 0 auto;
   
 }
 

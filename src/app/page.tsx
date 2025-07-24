@@ -32,7 +32,7 @@ const Home = () => {
             <h2 className='about-text'>I am <span className='bold'>currently</span> looking for internships! </h2>
           </div>
           <div className="about-image">
-            <Image src="/me.jpeg" alt="AI" height={300} width={300}/>
+            <Image src="/IMG_9363.jpg" alt="AI" height={300} width={300}/>
           </div>
         </div>
       </section>
