@@ -13,7 +13,7 @@ const Home = () => {
             <li><a href="#about" className="hover">About Me</a></li>
             <li><a href="#projects" className="hover">Projects</a></li>
             <li><a href="#contact-sec" className="hover">Contact Me</a></li>
-            <li><a href="/austin_resume.pdf" download={"austin_resume.pdf"}
+            <li><a href="/resume_may_done (2).pdf" download={"resume_may_done (2).pdf"}
             className='resume'
             >Download Resume</a></li>
           </ul>
@@ -29,7 +29,7 @@ const Home = () => {
               I have a deep curiosity to understand how the world works. 
               I think understanding how people think and learning code is essential to create innovative products that will transcend this world.
               I enjoy diving into challenges, learning new concepts, and applying them to make a positive impact.</h2>
-            <h2 className='about-text'>I am <span className='bold'>currently</span> looking for internships! </h2>
+            {/* <h2 className='about-text'>I am <span className='bold'>currently</span> looking for internships! </h2> */}
           </div>
           <div className="about-image">
             <Image src="/IMG_9363.jpg" alt="AI" height={300} width={300}/>
