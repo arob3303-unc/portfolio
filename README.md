@@ -1,4 +1,4 @@
-# Personal Portfolio Website 🌐  
+# Personal Portfolio Website
 
 A responsive portfolio website built to showcase my **projects, skills, and career interests**.  
 The site serves as a professional hub where recruiters can learn about me, view my work, and get in touch.  
@@ -14,7 +14,7 @@ The portfolio includes:
 
 ---
 
-## 🚀 Features  
+## Features  
 - **Responsive Design** → Works across desktop and mobile devices.  
 - **Project Showcase** → Highlights technical projects with descriptions and tech stacks.  
 - **Resume Integration** → Visitors can download my latest resume.  
@@ -22,9 +22,7 @@ The portfolio includes:
 
 ---
 
-## 🛠️ Tech Stack  
+## Tech Stack  
 - **Frontend**: React / Next.js  
 - **Styling**: Tailwind CSS / globals.css section 
 - **Hosting**: Vercel  
-
----
