@@ -97,7 +97,7 @@ export const projects: Project[] = [
   {
     slug: "featured-2",
     title: "COMP423 Group Project - LearnWithAI",
-    summary: "Created an application with a student side and a professor side at UNC Chapel Hill to help student's understand course work directly on the site without needing to go anywhere else. Professors are able to drop course work in and student's can use AI to help understand certain parts of it.",
+    summary: "Helped create an application with a student side and a professor side at UNC Chapel Hill to help student's understand course work directly on the site without needing to go anywhere else. Professors are able to drop course work in and student's can use AI to help understand certain parts of it. Group project with 3 other people.",
     year: "2026",
     featured: true,
     tech: [
@@ -109,10 +109,10 @@ export const projects: Project[] = [
       TECH.css,
       TECH.api,
     ],
-    problem: "TODO — what problem did this solve, and for whom?",
-    role: "TODO — what specifically did you build?",
-    challenge: "TODO — the hardest thing you hit, and how you got past it.",
-    outcome: "TODO — what shipped, who used it, what it measurably did.",
+    problem: "Students having to go to different sites to use AI to help understand concepts from professor notes. They might even have to pay for it...",
+    role: "Helped with the design and implementation of the front-end portions of the application.",
+    challenge: "Merge conflicts on different branches caused a lot of headaches. We did not have much experience with working with other people on different branches so when pushing to main, it caused several issues we have not seen. We figured it out though and pushed through the project.",
+    outcome: "Worked with a group to fully develop a functioning application to help students with learning. ",
     bullets: [],
     links: [
       {
@@ -125,20 +125,27 @@ export const projects: Project[] = [
       }
     ],
   },
-  {
-    slug: "featured-3",
-    title: "TODO — project name",
-    summary: "TODO — the one line a recruiter reads before deciding to expand.",
-    year: "2025",
-    featured: true,
-    tech: [TECH.python, TECH.flask, TECH.postgres],
-    problem: "TODO — what problem did this solve, and for whom?",
-    role: "TODO — what specifically did you build?",
-    challenge: "TODO — the hardest thing you hit, and how you got past it.",
-    outcome: "TODO — what shipped, who used it, what it measurably did.",
-    bullets: [],
-    
-  },
+  // {
+  //   slug: "featured-3",
+  //   title: "",
+  //   summary: "",
+  //   year: "2026",
+  //   featured: true,
+  //   tech: [
+
+  //   ],
+  //   problem: "",
+  //   role: "",
+  //   challenge: "",
+  //   outcome: "",
+  //   bullets: [],
+  //   links: [
+  //     {
+  //         href: "",
+  //         label: ""
+  //     }
+  //   ],
+  // },
 
   /* ── Real projects ───────────────────────────────────────────────────── */
   {
@@ -181,7 +188,10 @@ export const projects: Project[] = [
     image: "/algo.png",
     imageWidth: 1800,
     imageHeight: 1750,
-    tech: [TECH.python, TECH.api],
+    tech: [
+      TECH.python, 
+      TECH.api
+    ],
     bullets: [
       "Developed an algorithmic trading strategy using pandas and the Yahoo Finance API to execute buy/sell decisions based on 50-day and 200-day moving averages.",
       "Accounted for transaction costs (0.04%) to simulate realistic trading conditions.",
@@ -303,48 +313,48 @@ export const projects: Project[] = [
      don't need — they render as real cards, so don't ship them as-is.
      `tech` is what puts a chip in the filter bar at the top of the page.
      ───────────────────────────────────────────────────────────────────── */
-  {
-    slug: "placeholder-1",
-    title: "TODO — project name",
-    summary: "TODO — one line on what it does.",
-    tech: [TECH.r],
-    bullets: ["TODO — what you built, how, and what was hard about it."],
-  },
-  {
-    slug: "placeholder-2",
-    title: "TODO — project name",
-    summary: "TODO — one line on what it does.",
-    tech: [TECH.cpp],
-    bullets: ["TODO — what you built, how, and what was hard about it."],
-  },
-  {
-    slug: "placeholder-3",
-    title: "TODO — project name",
-    summary: "TODO — one line on what it does.",
-    tech: [TECH.c],
-    bullets: ["TODO — what you built, how, and what was hard about it."],
-  },
-  {
-    slug: "placeholder-4",
-    title: "TODO — project name",
-    summary: "TODO — one line on what it does.",
-    tech: [TECH.prolog],
-    bullets: ["TODO — what you built, how, and what was hard about it."],
-  },
-  {
-    slug: "placeholder-5",
-    title: "TODO — project name",
-    summary: "TODO — one line on what it does.",
-    tech: [TECH.angular, TECH.node],
-    bullets: ["TODO — what you built, how, and what was hard about it."],
-  },
-  {
-    slug: "placeholder-6",
-    title: "TODO — project name",
-    summary: "TODO — one line on what it does.",
-    tech: [TECH.java, TECH.sql],
-    bullets: ["TODO — what you built, how, and what was hard about it."],
-  },
+  // {
+  //   slug: "placeholder-1",
+  //   title: "TODO — project name",
+  //   summary: "TODO — one line on what it does.",
+  //   tech: [TECH.r],
+  //   bullets: ["TODO — what you built, how, and what was hard about it."],
+  // },
+  // {
+  //   slug: "placeholder-2",
+  //   title: "TODO — project name",
+  //   summary: "TODO — one line on what it does.",
+  //   tech: [TECH.cpp],
+  //   bullets: ["TODO — what you built, how, and what was hard about it."],
+  // },
+  // {
+  //   slug: "placeholder-3",
+  //   title: "TODO — project name",
+  //   summary: "TODO — one line on what it does.",
+  //   tech: [TECH.c],
+  //   bullets: ["TODO — what you built, how, and what was hard about it."],
+  // },
+  // {
+  //   slug: "placeholder-4",
+  //   title: "TODO — project name",
+  //   summary: "TODO — one line on what it does.",
+  //   tech: [TECH.prolog],
+  //   bullets: ["TODO — what you built, how, and what was hard about it."],
+  // },
+  // {
+  //   slug: "placeholder-5",
+  //   title: "TODO — project name",
+  //   summary: "TODO — one line on what it does.",
+  //   tech: [TECH.angular, TECH.node],
+  //   bullets: ["TODO — what you built, how, and what was hard about it."],
+  // },
+  // {
+  //   slug: "placeholder-6",
+  //   title: "TODO — project name",
+  //   summary: "TODO — one line on what it does.",
+  //   tech: [TECH.java, TECH.sql],
+  //   bullets: ["TODO — what you built, how, and what was hard about it."],
+  // },
 ];
 
 /** The Prominent Projects section, in array order. */
