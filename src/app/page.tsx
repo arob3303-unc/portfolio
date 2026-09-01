@@ -204,7 +204,7 @@ export default function Home() {
           {[
             {
               when: "Now",
-              what: "Developer at Vechter Home Solutions. I also build and maintain websites for local businesses.",
+              what: "Developer / Sales rep at Vechter Home Solutions. Working on building websites for local businesses.",
             },
             {
               when: "2023 — 2026",
