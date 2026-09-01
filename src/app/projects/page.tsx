@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import ProjectGrid from "../Components/ProjectGrid";
+import ProjectsExplorer from "../Components/ProjectsExplorer";
 
 export const metadata: Metadata = {
   title: "Projects — Austin Robinson",
@@ -15,9 +15,9 @@ export default function ProjectsPage() {
       </h1>
       <p className="mb-8 max-w-2xl text-sm text-ash">
         Select a project to read what it does, how it was built, and what broke
-        along the way.
+        along the way. Use the filter to narrow the full list by technology.
       </p>
-      <ProjectGrid />
+      <ProjectsExplorer />
     </section>
   );
 }

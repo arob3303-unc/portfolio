@@ -1,20 +1,61 @@
 import Image from "next/image";
 import Link from "next/link";
+import PhotoLightbox from "./Components/PhotoLightbox";
 import Tile, { TileTitle } from "./Components/Tile";
 import { TECH } from "./data/projects";
 
-const STACK = [
-  TECH.python,
-  TECH.java,
-  TECH.ts,
-  TECH.js,
-  TECH.react,
-  TECH.next,
-  TECH.html,
-  TECH.css,
-  TECH.postgres,
-  TECH.api,
-  TECH.vercel,
+type Skill = { label: string; logo?: string };
+
+/* Grouped rather than one flat logo wall: a recruiter scanning this wants to
+   know the shape of the experience, not just count icons. Logos are attached
+   where one exists in /public; the rest render as plain chips. */
+const SKILL_GROUPS: { group: string; items: Skill[] }[] = [
+  {
+    group: "Programming languages (by proficiency)",
+    items: [
+      { label: "Python", logo: TECH.python.src },
+      { label: "Java", logo: TECH.java.src },
+      { label: "TypeScript", logo: TECH.ts.src },
+      { label: "JavaScript", logo: TECH.js.src },
+      { label: "R" },
+      { label: "C++" },
+      { label: "C" },
+    ],
+  },
+  {
+    group: "Frameworks & tools",
+    items: [
+      { label: "React.js", logo: TECH.react.src },
+      { label: "Angular" },
+      { label: "AI agentic tools" },
+      { label: "Node.js" },
+      { label: "Flask" },
+      { label: "Docker" },
+      { label: "Kubernetes" },
+      { label: "AWS (EC2)" },
+      { label: "Scalable application architecture" },
+      { label: "RESTful API design", logo: TECH.api.src },
+      { label: "Maven" },
+      { label: "Spring Boot" },
+      { label: "Next.js", logo: TECH.next.src },
+      { label: "HTML5", logo: TECH.html.src },
+      { label: "CSS3", logo: TECH.css.src },
+      { label: "Vercel", logo: TECH.vercel.src },
+    ],
+  },
+  {
+    group: "Data & analysis",
+    items: [
+      { label: "SQL" },
+      { label: "PostgreSQL", logo: TECH.postgres.src },
+      { label: "SQLModel / SQLAlchemy" },
+      { label: "pandas" },
+      { label: "NumPy" },
+      { label: "scikit-learn" },
+      { label: "JSON" },
+      { label: "Matplotlib" },
+    ],
+  },
 ];
 
 export default function Home() {
@@ -28,8 +69,8 @@ export default function Home() {
       >
         <TileTitle>Who am I</TileTitle>
         <p className="mt-3 text-sm leading-relaxed text-chalk/90 transition-colors duration-300 group-hover:text-ink sm:text-base">
-          I&apos;m a passionate student studying Economics and Computer Science
-          at the University of North Carolina at Chapel Hill. I have a deep
+          I&apos;m a recent Graduate of 
+          the University of North Carolina at Chapel Hill. I have a deep
           curiosity to understand how the world works. I think understanding how
           people think and learning code is essential to create innovative
           products that will transcend this world. I enjoy diving into
@@ -44,16 +85,13 @@ export default function Home() {
         delay={0.06}
         className="!p-0 lg:col-start-3 lg:row-start-1 lg:row-span-2"
       >
-        <div className="relative min-h-[260px] w-full flex-1">
-          <Image
-            src="/IMG_9363.jpg"
-            alt="Austin Robinson"
-            fill
-            priority
-            sizes="(max-width: 1024px) 100vw, 33vw"
-            className="object-cover"
-          />
-        </div>
+        <PhotoLightbox
+          src="/find-me.jpg"
+          alt="Aerial drone photo — Austin is somewhere in it"
+          width={3840}
+          height={2160}
+          className="min-h-[260px] w-full flex-1"
+        />
       </Tile>
 
       {/* Student / career */}
@@ -65,8 +103,8 @@ export default function Home() {
       >
         <TileTitle>Student / Career</TileTitle>
         <p className="mt-3 text-sm leading-relaxed text-chalk/90 transition-colors duration-300 group-hover:text-ink">
-          B.S. Computer Science &amp; B.A. Economics, UNC Chapel Hill.
-          Currently looking for software engineering internships.
+          B.S. Computer Science UNC Chapel Hill.
+          Currently looking for software engineering roles.
         </p>
       </Tile>
 
@@ -76,35 +114,45 @@ export default function Home() {
         delay={0.18}
         className="justify-center lg:col-start-2 lg:row-start-2 lg:row-span-2"
       >
-        <h1 className="font-display text-3xl leading-tight text-chalk transition-colors duration-300 group-hover:text-ink sm:text-4xl">
-          Austin
-          <br />
-          Robinson
-        </h1>
-        {/* group-hover outranks hover in specificity, so it owns the text
-            colour; the link's own hover only tints the background. */}
-        <a
-          href="https://github.com/arob3303-unc"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-5 inline-flex w-fit items-center gap-2 rounded-md border border-edge px-3 py-2 text-sm text-chalk transition-colors duration-200 hover:bg-ink/10 group-hover:border-ink/40 group-hover:text-ink"
-        >
-          <Image src="/Github.png" alt="" width={20} height={20} />
-          arob3303-unc
-        </a>
+        <div className="flex items-center justify-between gap-5">
+          <h1 className="shrink-0 font-display text-3xl leading-tight text-chalk transition-colors duration-300 group-hover:text-ink sm:text-4xl">
+            Austin
+            <br />
+            Robinson
+          </h1>
+          {/* flex-1 lets the avatar claim whatever width the name leaves, so
+              it fills the tile; aspect-square keeps it a true circle. */}
+          <a
+            href="https://github.com/arob3303-unc"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Austin Robinson on GitHub"
+            className="relative aspect-square w-full min-w-[96px] max-w-[176px] flex-1 overflow-hidden rounded-full border-2 border-edge transition-[transform,border-color] duration-200 hover:scale-105 group-hover:border-ink/40"
+          >
+            <Image
+              src="/IMG_4026.png"
+              alt="Austin Robinson"
+              fill
+              sizes="(max-width: 1024px) 45vw, 176px"
+              className="object-cover"
+            />
+          </a>
+        </div>
       </Tile>
 
-      {/* Image description */}
-      {/* TODO(austin): replace with a caption for the photo above. */}
+      {/* Caption for the drone photo above */}
       <Tile
         from="right"
         delay={0.24}
         className="lg:col-start-3 lg:row-start-3"
       >
-        <TileTitle>About the photo</TileTitle>
+        <TileTitle>the Photo</TileTitle>
         <p className="mt-3 text-sm leading-relaxed text-chalk/90 transition-colors duration-300 group-hover:text-ink">
-          Add a short caption here — where this was taken and what you were
-          doing.
+          I enjoy traveling and taking drone pictures :)
+          <br/>Were you able to find me??
+        </p>
+        <p className="mt-2 text-xs leading-relaxed text-ash transition-colors duration-300 group-hover:text-ink/60">
+          click the photo to enlarge it
         </p>
       </Tile>
 
@@ -114,27 +162,38 @@ export default function Home() {
         delay={0.3}
         className="lg:col-start-1 lg:row-start-3 lg:row-span-3"
       >
-        <TileTitle>Technologies I use</TileTitle>
-        <ul className="mt-4 grid grid-cols-3 gap-4 sm:grid-cols-4 lg:grid-cols-3">
-          {STACK.map((t) => (
-            <li key={t.src} className="flex flex-col items-center gap-1.5">
-              <Image
-                src={t.src}
-                alt=""
-                width={32}
-                height={32}
-                className="h-8 w-8 object-contain"
-              />
-              <span className="text-center text-[10px] leading-tight text-ash transition-colors duration-300 group-hover:text-ink/60">
-                {t.label}
-              </span>
-            </li>
+        <TileTitle>Technologies I have worked with</TileTitle>
+        <div className="mt-4 space-y-5">
+          {SKILL_GROUPS.map((g) => (
+            <div key={g.group}>
+              <h3 className="font-display text-[10px] uppercase tracking-[0.16em] text-ash transition-colors duration-300 group-hover:text-ink/60">
+                {g.group}
+              </h3>
+              <ul className="mt-2 flex flex-wrap gap-1.5">
+                {g.items.map((it) => (
+                  <li
+                    key={it.label}
+                    className="inline-flex items-center gap-1.5 rounded-md border border-edge px-2 py-1 text-[11px] leading-none text-chalk/90 transition-colors duration-300 group-hover:border-ink/30 group-hover:text-ink"
+                  >
+                    {it.logo && (
+                      <Image
+                        src={it.logo}
+                        alt=""
+                        width={14}
+                        height={14}
+                        className="h-3.5 w-3.5 shrink-0 object-contain"
+                      />
+                    )}
+                    {it.label}
+                  </li>
+                ))}
+              </ul>
+            </div>
           ))}
-        </ul>
+        </div>
       </Tile>
 
       {/* Education / timeline */}
-      {/* TODO(austin): replace these entries with your real timeline. */}
       <Tile
         from="bottom"
         delay={0.36}
@@ -145,15 +204,19 @@ export default function Home() {
           {[
             {
               when: "Now",
-              what: "Building side projects and looking for a software engineering internship.",
+              what: "Developer at Vechter Home Solutions. I also build and maintain websites for local businesses.",
             },
             {
-              when: "2023 — present",
-              what: "UNC Chapel Hill — Economics & Computer Science.",
+              when: "2023 — 2026",
+              what: "UNC Chapel Hill — Computer Science & Economics.",
             },
             {
-              when: "2023",
-              what: "HackNC — built the first version of HayBale Game in PyGame.",
+              when: "2022 — 2023",
+              what: "Online classes alongside a full-time job at a manufacturing plant.",
+            },
+            {
+              when: "2020 — 2021",
+              what: "High school, cashier at Food Lion, and tennis.",
             },
           ].map((row) => (
             <li key={row.when} className="flex flex-col gap-1 sm:flex-row sm:gap-4">
