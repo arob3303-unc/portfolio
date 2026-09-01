@@ -1,151 +1,43 @@
-@import url('https://fonts.googleapis.com/css2?family=Wittgenstein:ital,wght@0,400..900;1,400..900&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-html, body {
+:root {
+  --ink: #000000;
+  --tile: #141414;
+  --edge: #2a2a2a;
+  --chalk: #f2f2f2;
+  --ash: #9a9a9a;
+  --carolina: #4b9cd3;
+}
+
+html,
+body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  height: 100%; /* Ensures the body takes up the full viewport height */
+  min-height: 100%;
+  /* Tiles start off-screen during the fly-in; without this they widen the page. */
+  overflow-x: hidden;
 }
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Tiles converge toward the center of the grid on load. Direction and stagger
+   come from --dx / --dy / --d, which <Tile> sets inline per instance. */
+@keyframes flyIn {
+  from {
+    transform: translate(var(--dx, 0), var(--dy, 0)) scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
   }
 }
 
-.bold {
-  font-weight: bold;
-}
-
-.header {
-  color: white;
-  text-align: center;
-  background-color: #2C3E50;
-  padding: .3rem;
-  font-family: "Wittgenstein", serif;
-  margin: 0;
-}
-.header h1 {
-  font-size: 3rem;
-  font-weight: bold;
-}
-
-.nav {
-  color: white;
-  text-align: center;
-  background-color: #2C3E50;
-  padding: 1rem;
-  font-family: Arial, Helvetica, sans-serif;
-  border-radius: .2rem;
-  position: sticky;
-  top: 0;
-  margin: 0 auto;
-}
-
-.nav-list {
-  justify-content: center;
-  display: flex;
-  background-color: #2C3E50;
-  gap: .3rem;
-  font-family: Arial, Helvetica, sans-serif;
-  list-style: none;
-}
-
-.nav-list li a {
-  display: inline-block; /* Make anchor tags block-level so border is applied properly */
-  padding: 8px 16px; /* Add some padding to the links */
-  border: 2px solid transparent; /* Set a default border color (transparent for non-hover state) */
-  border-radius: 5px; /* Optional: rounded corners */
-  text-decoration: none; /* Remove underline */
-  color: #FFFFFF; /* White text */
-  transition: border-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
-}
-
-.nav-list li a:hover {
-  border-color: #826a82; /* Border color when hovering (blue in this case) */
-  color: #826a82; /* Change text color on hover (optional) */
-}
-
-.resume {
-  padding: 0.5rem 1rem;
-  background-color: #1a2631;
-  color: white;
-  font-weight: 450;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  text-decoration: none;
-  text-align: center;
-  display: inline-block;
-  transition: background-color 0.3s ease;
-}
-
-
-/* src/app/globals.css */
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #2C3E50;
-  max-width: 1366px;
-  margin: 0 auto;
-}
-
-h1, h2 {
-  text-align: center;
-}
-
-a {
-  text-decoration: none;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-a:hover {
-  color: #826a82; /* Purple on hover */
-}
-
-#about {
-  background-color: #1a2631;
-  color: white;
-}
-
-.about-content {
-  display: flex; /* Flexbox to align items side by side */
-  justify-content: space-between;
-  align-items: center; /* Center items vertically */
-  padding-top: 1rem;
-}
-
-.about-text-section {
-  flex: 1;
-  margin-right: 20px; /* Add space between text and image */
-  margin-left: 30px;
-  padding: 20px;
-  background-color: #34495E; /* Darker background for the text box */
-  border: 2px solid #826a82; /* Blue border around the box */
-  border-radius: 15px; /* Curved corners for the box */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: shadow effect for depth */
-  font-size: 1.3rem;
-}
-
-h2 {
-  text-align: left;
-}
-h1 {
-  margin-bottom: 2rem;
-  text-align: center;
+.tile-animate {
+  /* `backwards` holds the from-state through the delay so server-rendered
+     tiles never flash at their final position first. */
+  animation: flyIn 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+  animation-delay: var(--d, 0s);
 }
 
 @keyframes fadeIn {
@@ -157,380 +49,35 @@ h1 {
   }
 }
 
-.about-image img {
-  max-width: 100%; /* Prevent overflow */
-  margin-right: 30px;
-  height: auto; /* Maintain aspect ratio */
-  width: 365px; /* Set a fixed width for the image */
-  border: 2px solid #826a82; /* Border around the image (blue) */
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0 20px 84px rgba(0, 0, 0, 0.2); /* Optional: shadow around the image */
-  margin-left: 20px; /* Space between the image and the text */
-
-  border-radius: 25%;
-  transition: transform 0.3s ease;
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
-.about-image :hover {
-  transform: scale(1.1);
+.animate-fade-in {
+  animation: fadeIn 0.2s ease-out both;
 }
 
-#projects {
-  color: white;
-  text-align: center;
-  margin-top: 2.5rem;
-  margin-bottom: 11rem;
+.animate-rise-in {
+  animation: riseIn 0.25s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
-/* MODAL SECTION */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  inset: 0;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(0, 0, 0, .6);
-  height: 100%;
-  width: 100%;
-  z-index: 999;
-  max-width: 960px;
-  max-height: 440px;
-  margin: 0 auto;
-  
+@media (prefers-reduced-motion: reduce) {
+  .tile-animate,
+  .animate-fade-in,
+  .animate-rise-in {
+    animation: none;
+  }
 }
 
-.modal-box {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  width: auto;
-  height: auto;
-  padding: 1rem;
-  background-color: rgb(17, 16, 16);
-  opacity: 100%;
-  z-index: 1000;
-}
-
-.modal-project-img {
-  max-width: 100%;
-  height: 30%;
-  object-fit: cover;
-  transition: all 0.3s ease;
-}
-
-.modal-img-height {
-  max-height: 400px;
-}
-
-.modal-box-icons {
-  transition: transform 0.3s ease;
-}
-
-.modal-box-icons:hover {
-  transform: scale(1.2);
-}
-
-.modal-link {
-  text-align: center;
-  color: rgb(196, 70, 70);
-  margin-top: 1rem;
-  font-size: larger;
-  font-weight: bold;
-}
-
-.modal-project-text {
-  flex: 1;
-  margin-right: 20px; /* Add space between text and image */
-  margin-left: 30px;
-  margin-top: 2rem;
-  padding: 1rem;
-  background-color: #34495E; /* Darker background for the text box */
-  border: 2px solid #826a82; /* Blue border around the box */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: shadow effect for depth */
-  font-size: 1.3rem;
-  text-align: left;
-  height: 50%;
-  flex-direction: column;
-
-  max-height: 300px;
-  overflow-y: auto;
-  line-height: 1.5;
-  
+/* Dark scrollbar so the modal's overflow area matches the palette. */
+* {
+  scrollbar-color: var(--edge) transparent;
   scrollbar-width: thin;
-  scrollbar-color: #888 #34495E;
-}
-
-.modal-close-button {
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  background-color: red;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  align-self: flex-end;
-}
-
-.modal-project-textcolor1 {
-  color:white
-}
-
-.modal-project-textcolor2 {
-  color:antiquewhite
-}
-
-.grid {
-  padding: 1.25rem;
-}
-
-.box-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.5rem;
-  padding: 2rem;
-}
-
-.modal-box-imgs {
-  margin-top: 1.5rem;
-  flex-direction: row;
-  display: flex;
-  gap: 16px;
-  align-items: center;
-  justify-content: center;
-}
- 
-.project-box {
-  background-color: #1a2631;
-  padding: 2rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-.project-box:hover {
-  background-color: #826a82;
-}
-
-.project-text {
-  font-size: 1.25rem;
-}
-
-.project-title {
-  font-weight: bold;
-  font-size: 3rem;
-  padding-top: 1rem;
-  font-family: "Wittgenstein", serif;
-}
-
-.project-sub-text {
-  color: white;
-  font-size: smaller;
-  margin-top: 1rem;
-}
-
-#contact-sec {
-  color: white;
-  text-align: center;
-  margin-top: 5rem;
-  margin-bottom: 0rem;
-  background-color: #1a2631;
-  padding: 0;
-}
-
-.contact {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 75vh;
-  background-color: #1a2631;
-}
-
-form {
-  max-width: 600px;
-  width: 100%;
-  background: #34495E;
-  padding: 25px 25px 25px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, .1);
-  color: white;
-  margin: 25px;
-}
-form h2 {
-  font-size: 30px;
-  text-align: center;
-  font-family: "Wittgenstein", serif;
-  font-weight: 800;
-}
-
-form .input-box {
-  margin-top: 20px;
-}
-
-.input-box .field {
-  width: 100%;
-  height: 50px;
-  background: transparent;
-  border: 2px solid black;
-  outline: none;
-  border-radius: 6px;
-  padding: 15px;
-  font-size: 16px;
-  color: white;
-  margin-top: 8px;
-}
-
-.input-box .field.mess {
-  height: 200px;
-  resize: none;
-}
-
-form button {
-  width: 100%;
-  height: 55px;
-  background: #826a82;
-  border: none;
-  border-radius: 6px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, .1);
-  cursor: pointer;
-  font-size: 16px;
-  color: #fff;
-  font-weight: 500;
-  margin-top: 25px;
-  transition: .5s;
-}
-
-form button:hover {
-  background: #382138;
-}
-
-.footer-images {
-  display: flex;
-  justify-content: left;
-  gap: 10px;
-  background-color: #2C3E50;
-  padding: .6rem;
-}
-
-@media (max-width: 550px) {
-  .header {
-    margin-top: 2rem;
-  }
-  .header h1 {
-    font-size: 1.5rem;
-  }
-
-  .about-text-section {
-    margin-right: 3rem;
-    margin-left: 3rem;
-    margin-bottom: 3rem;
-    padding: 1rem;
-    font-size: .75rem;
-  }
-
-  .about-content {
-    display: block;
-    padding-top: 1rem;
-  }
-
-  .about-image img {
-    display: flex;
-    max-width: 100%; /* Prevent overflow */
-    height: auto; /* Maintain aspect ratio */
-    width: 275px; /* Set a fixed width for the image */
-    margin-left: 17%; /* Space between the image and the text */
-  }
-
-  .modal-project-text {
-    font-size: .75rem;
-  }
-
-  .modal-box {
-    position: fixed;
-    width: 400;
-    height: 800;
-    padding: 1rem;
-  }
-
-  .project-text {
-    font-size: 1rem;
-  }
-
-  .box-grid {
-    display: grid;
-    grid-template-columns: auto;
-    gap: 1.5rem;
-    padding: 3rem;
-  }
-
-  .project-title {
-    font-size: 2.5rem;
-  }
-
-  #contact-sec {
-    padding: 1rem;
-  }
-}
-
-@media (max-width: 1366px) {
-  .header {
-    margin-top: 2rem;
-  }
-  .header h1 {
-    font-size: 2.5rem;
-  }
-
-  .about-text-section {
-    margin-right: 3rem;
-    margin-left: 3rem;
-    margin-bottom: 3rem;
-    padding: 1rem;
-    font-size: 1.5rem;
-  }
-
-  .about-content {
-    padding-top: 1rem;
-  }
-
-  .modal-project-text {
-    font-size: 1.5rem;
-    max-height: 250px;
-  }
-
-  .modal-img-height {
-    max-height: 300px;
-  }
-
-  .modal-box {
-    position: fixed;
-    width: 80%;
-    height: 90%;
-    padding: 1rem;
-  }
-
-  .project-text {
-    font-size: 1.3rem;
-  }
-
-  .project-title {
-    font-size: 3rem;
-  }
-}
-
-@media (min-width: 1550px) {
-  .about-content {
-    padding: 10rem;
-  }
-  .modal-box {
-    position: fixed;
-    width: 750;
-    height: 1150;
-    padding: 1rem;
-  }
-}
-
-@media (min-width: 1750px) {
-  .about-content {
-    padding: 15rem;
-  }
 }

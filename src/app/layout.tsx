@@ -1,43 +1,48 @@
-import React from 'react';
-import './globals.css'; // Global styles
-import Image from "next/image";
+import type { Metadata } from "next";
+import { Inter, Wittgenstein } from "next/font/google";
+import React from "react";
+import "./globals.css";
+import Nav from "./Components/Nav";
+import Footer from "./Components/Footer";
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+const sans = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const display = Wittgenstein({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+export const metadata: Metadata = {
+  title: "Austin Robinson — Software Engineer",
+  description:
+    "Economics and Computer Science student at UNC Chapel Hill. Projects in full-stack web, game development, and algorithmic trading.",
+  openGraph: {
+    title: "Austin Robinson — Software Engineer",
+    description:
+      "Economics and Computer Science student at UNC Chapel Hill. Projects in full-stack web, game development, and algorithmic trading.",
+    type: "website",
+  },
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    // Define html and body tags in the root layout
-    <html lang="en">
-      <body>
-        {/* Global header */}
-        <header className="header">
-          <h1>Welcome to My Website.</h1>
-        </header>
-
-        {/* Main content */}
-        <main>{children}</main>
-
-        {/* Global footer */}
-        <footer>
-          {/* Github logo link*/}
-          <div className='footer-images'>
-            <a href='https://github.com/arob3303-unc' target='blank' rel='noopener noreferrer'>
-              <Image
-                src='/Github.png'
-                alt='Github Link'
-                width={30} height={30}
-              />
-            </a>
-            {/* Linkedin logo link*/}
-            <a href='https://www.linkedin.com/in/austin-robinson-60617b296/' target='blank' rel='noopener noreferrer'>
-              <Image
-                src='/ln-pic.png'
-                alt='Linkedin Link'
-                width={30} height={30}
-              />
-            </a>
-          </div>
-
-
-        </footer>
+    <html lang="en" className={`${sans.variable} ${display.variable}`}>
+      <body className="flex min-h-screen flex-col bg-ink font-sans text-chalk antialiased">
+        <Nav />
+        <main className="mx-auto w-full max-w-[1600px] flex-1 px-4 py-8 sm:px-6 sm:py-12">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );
