@@ -38,9 +38,9 @@ export function TechLogos({ tech }: { tech: Tech[] }) {
           key={t.label}
           src={t.src as string}
           alt={t.label}
-          width={20}
-          height={20}
-          className="h-5 w-5 object-contain"
+          width={26}
+          height={26}
+          className="h-6 w-6 object-contain"
         />
       ))}
     </>

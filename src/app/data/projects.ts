@@ -72,29 +72,58 @@ export const projects: Project[] = [
      ───────────────────────────────────────────────────────────────────── */
   {
     slug: "featured-1",
-    title: "TODO — project name",
-    summary: "TODO — the one line a recruiter reads before deciding to expand.",
+    title: "Vechter Home Solutions — Field Diagnostic App",
+    summary: "Built and shipped a full-stack diagnostic web app used by field sales reps to test client systems on-site and generate tailored recommendations, contributing to $100K–$250K in weekly revenue.",
     year: "2026",
     featured: true,
-    tech: [TECH.ts, TECH.react, TECH.next],
-    problem: "TODO — what problem did this solve, and for whom?",
-    role: "TODO — what specifically did you build?",
-    challenge: "TODO — the hardest thing you hit, and how you got past it.",
-    outcome: "TODO — what shipped, who used it, what it measurably did.",
+    tech: [
+      TECH.ts,
+      TECH.react,
+      TECH.next,
+      TECH.vercel
+    ],
+    problem: "Reps visiting homes had no fast way to actually test a homeowner's existing solar output or backup power setup — they were relying on guesswork or manual paperwork, which slowed down the sales process and led to mismatched recommendations.",
+    role: "Designed and built the application end-to-end: the on-site diagnostic test flows for solar and backup power systems, the logic that flags problems in a homeowner's current setup, and the recommendation output reps use to close the sale during the visit.",
+    challenge: "The test calulations. A lot of inaccuracies when it came to calculating the data user's inputted.",
+    outcome: "Deployed to the sales team and used on every in-home visit. Directly tied to $100k–$250k in weekly revenue by giving reps a data-backed pitch instead of a generic one.",
     bullets: [],
+    links: [
+      {
+        href: "https://solar-testing-site.vercel.app",
+        label: "Website Link",
+      },
+    ],
   },
   {
     slug: "featured-2",
-    title: "TODO — project name",
-    summary: "TODO — the one line a recruiter reads before deciding to expand.",
-    year: "2025",
+    title: "COMP423 Group Project - LearnWithAI",
+    summary: "Created an application with a student side and a professor side at UNC Chapel Hill to help student's understand course work directly on the site without needing to go anywhere else. Professors are able to drop course work in and student's can use AI to help understand certain parts of it.",
+    year: "2026",
     featured: true,
-    tech: [TECH.java, TECH.sql, TECH.docker],
+    tech: [
+      TECH.python,
+      TECH.sql,
+      TECH.docker, 
+      TECH.html, 
+      TECH.ts,
+      TECH.css,
+      TECH.api,
+    ],
     problem: "TODO — what problem did this solve, and for whom?",
     role: "TODO — what specifically did you build?",
     challenge: "TODO — the hardest thing you hit, and how you got past it.",
     outcome: "TODO — what shipped, who used it, what it measurably did.",
     bullets: [],
+    links: [
+      {
+        href: "https://github.com/comp423-26s/learn-with-ai-team-f4",
+        label: "GitHub Repo Link",
+      },
+      {
+        href: "https://www.youtube.com/watch?v=geon3StgtOA",
+        label: "Youtube Demo"
+      }
+    ],
   },
   {
     slug: "featured-3",
@@ -108,6 +137,7 @@ export const projects: Project[] = [
     challenge: "TODO — the hardest thing you hit, and how you got past it.",
     outcome: "TODO — what shipped, who used it, what it measurably did.",
     bullets: [],
+    
   },
 
   /* ── Real projects ───────────────────────────────────────────────────── */

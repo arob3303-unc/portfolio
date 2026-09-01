@@ -67,7 +67,9 @@ export default function AllProjectsGrid({ visible }: { visible: Project[] }) {
         from={entryMode === "load" ? FLY_CYCLE[i % FLY_CYCLE.length] : "none"}
         delay={entryMode === "load" ? loadDelay(i) : 0}
         hoverable={false}
-        className={`!p-0 aspect-square ${
+        // Content-sized with a floor, not aspect-square: a square cell is ~520px
+        // tall at three columns on a wide monitor, which is nearly all padding.
+        className={`!p-0 min-h-[170px] ${
           isOpen ? "ring-2 ring-inset ring-carolina" : ""
         }`}
       >
@@ -83,10 +85,10 @@ export default function AllProjectsGrid({ visible }: { visible: Project[] }) {
             onClick={() => (isOpen ? close(false) : setOpen(p.slug))}
             className="group/card flex h-full w-full flex-col p-5 text-left transition-colors duration-300 hover:bg-carolina hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-carolina"
           >
-            <span className="font-display text-base leading-tight text-chalk transition-colors duration-300 group-hover/card:text-ink sm:text-lg">
+            <span className="font-display text-lg leading-tight text-chalk transition-colors duration-300 group-hover/card:text-ink sm:text-xl">
               {p.title}
             </span>
-            <span className="mt-2 text-xs leading-relaxed text-ash transition-colors duration-300 group-hover/card:text-ink/70">
+            <span className="mt-2 text-sm leading-relaxed text-ash transition-colors duration-300 group-hover/card:text-ink/70">
               {p.summary}
             </span>
             <span className="mt-auto flex items-center justify-between gap-3 pt-4">

@@ -10,13 +10,8 @@ export const metadata: Metadata = {
 export default function ProjectsPage() {
   return (
     <section>
-      <h1 className="mb-2 font-display text-4xl text-chalk sm:text-5xl">
-        Projects
-      </h1>
-      <p className="mb-8 max-w-2xl text-sm text-ash">
-        Select a project to read what it does, how it was built, and what broke
-        along the way. Use the filter to narrow the full list by technology.
-      </p>
+      {/* Visually dropped at Austin's request; kept for document outline. */}
+      <h1 className="sr-only">Projects</h1>
       <ProjectsExplorer />
     </section>
   );

@@ -39,14 +39,6 @@ export default function ProjectsExplorer() {
 
   return (
     <div className="flex flex-col gap-12">
-      <TechFilter
-        selected={selected}
-        onToggle={toggle}
-        onClear={() => setSelected(new Set())}
-        shown={visible.length}
-        total={projects.length}
-      />
-
       <section>
         <SectionTitle>Prominent Projects</SectionTitle>
         <ProminentProjects />
@@ -54,7 +46,17 @@ export default function ProjectsExplorer() {
 
       <section>
         <SectionTitle>All Projects</SectionTitle>
-        <AllProjectsGrid visible={visible} />
+        {/* Sits with what it filters, so it needs no caption explaining itself. */}
+        <TechFilter
+          selected={selected}
+          onToggle={toggle}
+          onClear={() => setSelected(new Set())}
+          shown={visible.length}
+          total={projects.length}
+        />
+        <div className="mt-5">
+          <AllProjectsGrid visible={visible} />
+        </div>
       </section>
     </div>
   );
