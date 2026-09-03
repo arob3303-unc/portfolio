@@ -51,12 +51,23 @@ export const TECH: Record<string, Tech> = {
   angular: { label: "Angular" },
   node: { label: "Node.js" },
   flask: { label: "Flask" },
+  fastapi: { label: "FastAPI" },
+  rabbitmq: { label: "RabbitMQ" },
+  websockets: { label: "WebSockets" },
   docker: { label: "Docker" },
+  k8s: { label: "Kubernetes" },
+  aws: { label: "AWS (EC2)" },
+  clerk: { label: "Clerk" },
   html: { src: "/HTML5.png", label: "HTML5" },
   css: { src: "/CSS3.png", label: "CSS3" },
   postgres: { src: "/post.png", label: "PostgreSQL" },
+  sqlmodel: { label: "SQLModel" },
   supabase: { label: "Supabase" },
   api: { src: "/OpenAPI.png", label: "APIs" },
+  openai: { label: "OpenAI API" },
+  azureopenai: { label: "Azure OpenAI" },
+  alloy: { label: "Alloy" },
+  sat: { label: "SAT solvers" },
   phaser: { label: "Phaser.js" },
   pygame: { label: "PyGame" },
   vercel: { src: "/Vercel.png", label: "Vercel" },
@@ -71,7 +82,7 @@ export const projects: Project[] = [
      the TODO text. Everything below this block is already real.
      ───────────────────────────────────────────────────────────────────── */
   {
-    slug: "featured-1",
+    slug: "vechter-field-diagnostic",
     title: "Vechter Home Solutions — Field Diagnostic App",
     summary: "Built and shipped a full-stack diagnostic web app used by field sales reps to test client systems on-site and generate tailored recommendations, contributing to $100K–$250K in weekly revenue.",
     year: "2026",
@@ -95,25 +106,35 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "featured-2",
-    title: "COMP423 Group Project - LearnWithAI",
+    slug: "learnwithai",
+    title: "LearnWithAI — AI-Powered Lecture Summarizer",
     summary: "Helped create an application with a student side and a professor side at UNC Chapel Hill to help student's understand course work directly on the site without needing to go anywhere else. Professors are able to drop course work in and student's can use AI to help understand certain parts of it. Group project with 3 other people.",
     year: "2026",
     featured: true,
     tech: [
+      TECH.angular,
+      TECH.fastapi,
       TECH.python,
-      TECH.sql,
-      TECH.docker, 
-      TECH.html, 
       TECH.ts,
-      TECH.css,
+      TECH.rabbitmq,
+      TECH.websockets,
+      TECH.k8s,
+      TECH.docker,
+      TECH.postgres,
+      TECH.sqlmodel,
+      TECH.azureopenai,
       TECH.api,
     ],
     problem: "Students having to go to different sites to use AI to help understand concepts from professor notes. They might even have to pay for it...",
     role: "Helped with the design and implementation of the front-end portions of the application.",
     challenge: "Merge conflicts on different branches caused a lot of headaches. We did not have much experience with working with other people on different branches so when pushing to main, it caused several issues we have not seen. We figured it out though and pushed through the project.",
     outcome: "Worked with a group to fully develop a functioning application to help students with learning. ",
-    bullets: [],
+    bullets: [
+      "Collaborated in a 4-person team to engineer a modular learning management platform enabling students to upload lecture audio/text and receive automated AI summaries via Azure OpenAI.",
+      "Implemented a real-time event system via WebSockets, streaming background worker job statuses directly to the frontend client with an automated HTTP polling fallback mechanism.",
+      "Architected a type-safe backend infrastructure using SQLModel for data persistence in PostgreSQL, securing endpoints.",
+      "Containerized the application ecosystem using Docker and established non-mutating validation pipelines (Ruff, Pyright, Prettier), deploying the final infrastructure onto an OKD Kubernetes cluster.",
+    ],
     links: [
       {
         href: "https://github.com/comp423-26s/learn-with-ai-team-f4",
@@ -125,29 +146,54 @@ export const projects: Project[] = [
       }
     ],
   },
-  // {
-  //   slug: "featured-3",
-  //   title: "",
-  //   summary: "",
-  //   year: "2026",
-  //   featured: true,
-  //   tech: [
-
-  //   ],
-  //   problem: "",
-  //   role: "",
-  //   challenge: "",
-  //   outcome: "",
-  //   bullets: [],
-  //   links: [
-  //     {
-  //         href: "",
-  //         label: ""
-  //     }
-  //   ],
-  // },
+  {
+    slug: "anticheat-formal-verification",
+    title: "Formal Verification of a Client-Side Anti-Cheat System",
+    summary:
+      "Modelled an open-source anti-cheat in Alloy and used SAT-based model checking to find states where its detection could be bypassed.",
+    year: "February — May 2026",
+    featured: true,
+    tech: [TECH.cpp, TECH.alloy, TECH.sat],
+    bullets: [
+      "Conducted a formal security analysis of the Ultimate AntiCheat open-source framework by abstracting C++ source code into a relational state-transition model.",
+      "Defined critical security properties using First-Order Logic and LTL to verify system integrity against memory modification, debugger attachment, and unauthorized module injection.",
+      "Utilized the Alloy Analyzer to perform automated SAT-based model checking, exhaustively exploring state spaces to identify logic flaws and potential memory “leakage” that could bypass detection.",
+      "Identified and documented counterexamples where legitimate system states could be spoofed or where detection mechanisms failed to trigger enforcement, providing mathematically grounded security assurances.",
+    ],
+    // TODO(austin): the four fields below render as the write-up above the
+    // bullets. Left empty rather than invented — fill them in your own words.
+    // problem: "",
+    // role: "",
+    // challenge: "",
+    // outcome: "",
+  },
 
   /* ── Real projects ───────────────────────────────────────────────────── */
+  {
+    slug: "extro-stock-forecaster",
+    title: "Extro — Stock Market Forecaster",
+    summary:
+      "A full-stack portfolio simulator that pairs fictional balances with AI-generated investment feedback.",
+    year: "June 2025 — Present",
+    tech: [
+      TECH.next,
+      TECH.ts,
+      TECH.react,
+      TECH.python,
+      TECH.flask,
+      TECH.openai,
+      TECH.clerk,
+      TECH.sql,
+      TECH.aws,
+      TECH.api,
+    ],
+    bullets: [
+      "Developed a full-stack financial dashboard where users log in and simulate long-term portfolio growth using fictional balances.",
+      "Integrated OpenAI API using Flask in the backend to generate personalized investment advice. The AI analyzes user-selected companies, provides performance feedback, profit summaries, and recommendations on whether to invest.",
+      "Implemented secure authentication and data persistence using Clerk (login) and a Flask + SQL RESTful API architecture deployed on AWS EC2.",
+      "Result: Built an intelligent, cloud-ready simulation platform combining AI reasoning with financial analytics to enhance user engagement and learning in investing.",
+    ],
+  },
   {
     slug: "haybale-game",
     title: "HayBale Game",
