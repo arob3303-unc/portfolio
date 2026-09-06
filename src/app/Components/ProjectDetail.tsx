@@ -1,5 +1,28 @@
 import Image from "next/image";
+import type { Ref } from "react";
 import type { Project, Tech } from "../data/projects";
+
+/** Disclosure caret. Lives here because both project grids use it. */
+export function Chevron({ open }: { open: boolean }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      className={`h-4 w-4 shrink-0 transition-transform duration-300 motion-reduce:transition-none ${
+        open ? "rotate-180" : ""
+      }`}
+    >
+      <path
+        d="M6 9l6 6 6-6"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
 
 /** Tech as small labelled chips. Renders a logo only where one exists. */
 export function TechChips({ tech }: { tech: Tech[] }) {
@@ -129,6 +152,52 @@ export default function ProjectDetail({ project }: { project: Project }) {
           ))}
         </div>
       )}
+    </div>
+  );
+}
+
+/**
+ * The expanded panel both sections splice into their grid as a full-width
+ * child. Shared so the prominent tiles and the All Projects cards can never
+ * drift into looking like two different disclosures.
+ */
+export function ProjectPanel({
+  project,
+  panelId,
+  labelledBy,
+  onClose,
+  panelRef,
+}: {
+  project: Project;
+  panelId: string;
+  labelledBy: string;
+  onClose: () => void;
+  panelRef?: Ref<HTMLDivElement>;
+}) {
+  return (
+    <div
+      id={panelId}
+      ref={panelRef}
+      role="region"
+      aria-labelledby={labelledBy}
+      className="animate-rise-in col-span-full rounded-xl border border-carolina/40 bg-tile-hi p-6"
+    >
+      <div className="mb-5 flex items-baseline justify-between gap-4">
+        <h4 className="font-display text-xl text-chalk">{project.title}</h4>
+        {project.year && (
+          <span className="shrink-0 text-xs text-ash">{project.year}</span>
+        )}
+      </div>
+
+      <ProjectDetail project={project} />
+
+      <button
+        type="button"
+        onClick={onClose}
+        className="mt-6 rounded-md border border-edge px-3 py-2 text-xs text-ash transition-colors hover:border-carolina hover:text-carolina focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-carolina"
+      >
+        Collapse
+      </button>
     </div>
   );
 }

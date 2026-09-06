@@ -40,16 +40,19 @@ src/app/
   page.tsx                home — the bento grid of Tiles
   projects/page.tsx       projects route
   contact/page.tsx        contact route
-  globals.css             ~83 lines: Tailwind layers + the tile fly-in keyframes
+  globals.css             Tailwind layers, the tile fly-in keyframes, `.cover-grid`
   data/projects.ts        typed TECH map + the `projects` array (the data model)
   Components/
     Tile.tsx              the bento card: fly-in direction/delay, hover-to-Carolina
     ProjectsExplorer.tsx  "use client" — owns the /projects filter state
     TechFilter.tsx        the stadium filter pill; AND logic, multi-select
-    ProminentProjects.tsx the 3 featured accordion rows (never filtered)
+    ProminentProjects.tsx the 4 featured projects as a 2x2 of big cover-art tiles
+                          (never filtered) — cover screenshot behind the title
     AllProjectsGrid.tsx   the square grid + spliced full-width detail panel
-    ProjectDetail.tsx     shared expanded-panel body + TechChips / TechLogos
-    useColumnCount.ts     live grid column count (mirrors AllProjectsGrid's cols)
+    ProjectDetail.tsx     shared expanded-panel body + TechChips / TechLogos,
+                          plus Chevron and ProjectPanel (used by both sections)
+    useColumnCount.ts     live grid column count; takes a breakpoint ladder —
+                          GRID_COLS (1/2/3) for All Projects, TWO_COLS for the 2x2
     PhotoLightbox.tsx     "use client" — full-screen photo viewer. Click the photo to
                           zoom in on that point, click again to zoom out, drag to pan
                           while zoomed. Esc / ✕ / backdrop close it.
@@ -62,11 +65,9 @@ Nav links are real routes now, not in-page anchors.
 
 ### Known pain points
 
-- **`npm run build` currently fails on Windows** at the static-export step with
-  `PageNotFoundError: Cannot find module for page: /_document`. It reproduces on a clean
-  checkout, so it is environmental (Next 15.5.24 + Turbopack), not caused by any one change.
-  Compilation and type-checking still pass; `npm run lint` is the reliable local gate until
-  this is fixed. Worth chasing — it will likely bite the Vercel deploy.
+- ~~`npm run build` fails on Windows with `PageNotFoundError: /_document`~~ — **no longer
+  reproduces** (verified 2026-09-05, full static export succeeds). If it comes back, delete
+  `.next/` first; that was most likely a stale build cache. `npm run build` is the gate again.
 - `IMG_4026.png` (the GitHub avatar) is 8.8 MB for a ~150px circle. `next/image` shrinks it on
   delivery, so visitors are fine, but it bloats the repo. Downscale it when convenient.
 - The web3forms access key is committed in `Contact.tsx`. It's a public-by-design key, so this
@@ -106,30 +107,48 @@ fixed; what remains is Austin filling in content.
 
 1. A stadium **filter pill** of tech chips. Multi-select, **AND** logic — a project must
    carry every checked chip. Nothing checked shows everything. It filters **All Projects
-   only**; Prominent is never filtered, which is why the caption under it says so.
-2. **Prominent Projects** — the 3 entries flagged `featured: true`, as full-width
-   accordion rows.
+   only**; Prominent is never filtered — the filter sits inside the All Projects section,
+   next to what it acts on.
+2. **Prominent Projects** — the 4 entries flagged `featured: true`, as a **2x2 of large
+   cover-art tiles**: the project's `cover` screenshot full-bleed behind the title, under a
+   `bg-gradient-to-t from-black/95` scrim so the title stays readable on light artwork
+   (the Vechter cover is near-white — it sets the floor for how strong that scrim has to
+   be). The grid is capped at `max-w-[1200px]` and centred, tiles are `aspect-[4/3]`
+   (~585x440), and hover shows a Tar Heel blue inset ring only — no fill, no zoom, because
+   a blue wash over a screenshot reads as a broken image. A featured project with no
+   `cover` gets the `.cover-grid` texture from `globals.css` instead.
 3. **All Projects** — every project as a square, 1/2/3 columns, capped at 3 across.
+   Deliberately kept plain: the contrast with the 2x2 above is what marks the good ones.
 
 Clicking any card **expands it inline** — no modal. One card open per section.
 
 **The data model is the thing to edit.** `src/app/data/projects.ts` is a single
-`projects` array of 18. The three `featured: true` entries lead the page *and* appear in
-the grid — one entry, both places, no duplication. `featuredProjects` and `FILTER_TECH`
+`projects` array of 12 live entries (plus 6 commented-out placeholders). The four
+`featured: true` entries lead the page *and* appear in the grid — one entry, both places,
+no duplication. **Array order is tile order** in the 2x2, so reorder the entries to
+rearrange it. `cover` is the tile background and is separate from `image`, which is the
+screenshot inside the expanded panel. `featuredProjects` and `FILTER_TECH`
 are both derived at the bottom of that file, so adding a project with a new tech puts a
 new chip in the filter bar automatically. Chip *order* comes from the `TECH` declaration
 order; reorder that object to reorder the bar.
 
-Entries whose title starts `TODO —` are placeholders (3 prominent + 6 grid). They render
-as real cards, so fill or delete them before deploying.
+Content still owed before deploying:
+
+- **Extro** has no `problem` / `role` / `challenge` / `outcome` and no `repo` / `site` /
+  `links`, so its panel is bullets + tech chips only — thin for a tile flagged as one of
+  the best four.
+- **Anti-cheat** has its four write-up fields commented out, and no cover art.
+- `public/learnwithai-cover.png` is only 524x300; it upscales visibly in a ~585px tile.
+  Re-export at >=1200px wide.
 
 **Two invariants worth not breaking:**
 
 - **Key cards by `slug`, never by index.** `.tile-animate` is a mount-triggered CSS
   animation, so index keys re-animate every surviving card on each filter toggle.
 - **The expanded panel is a separate `col-span-full` grid child**, spliced in at the end
-  of the expanded card's row (hence `useColumnCount`). Making the *card* `col-span-full`
-  instead pushes it to the next row and leaves dead cells behind it. The children must
+  of the expanded card's row (hence `useColumnCount`) — **both** sections do this, each
+  against its own breakpoint ladder. Making the *card* `col-span-full` instead pushes it
+  to the next row and leaves dead cells behind it. The children must
   also be one flat array — sliced sibling expressions are separate child slots, and a
   card crossing a slot boundary remounts and re-fires its fly-in.
 
@@ -139,8 +158,9 @@ as real cards, so fill or delete them before deploying.
   `IMG_4025.png` (graduation photo, currently unused), `IMG_9363.jpg` (legacy)
 - **Drone photo:** `find-me.jpg` — 3840×2160 aerial shot in the tall photo tile; the
   "Quiz time!" card asks visitors to spot Austin in it, so it needs its full resolution
-- **Resume:** `resume_may_done (2).pdf` — note the spaces and parens in the filename; URL-encode
-  or rename it if you touch the download link
+- **Resume:** `resume.pdf`
+- **Prominent cover art:** `extro-cover.png` (1221x1000), `vechter-cover.png` (1194x572,
+  light/cream), `learnwithai-cover.png` (524x300 — too small, needs re-export)
 - **Social:** `Github.png`, `ln-pic.png`
 - **Tech logos:** `Python.png`, `React.png`, `Next.js.png`, `TypeScript.png`, `JavaScript.png`,
   `Java.png`, `HTML5.png`, `CSS3.png`, `PyTorch.png`, `ML.png`, `CNN.png`, `Kaggle.png`,

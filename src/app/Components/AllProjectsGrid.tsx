@@ -3,8 +3,7 @@
 import type React from "react";
 import { useEffect, useRef, useState } from "react";
 import Tile, { type FlyDirection } from "./Tile";
-import ProjectDetail, { TechLogos } from "./ProjectDetail";
-import { Chevron } from "./ProminentProjects";
+import { Chevron, ProjectPanel, TechLogos } from "./ProjectDetail";
 import useColumnCount from "./useColumnCount";
 import type { Project } from "../data/projects";
 
@@ -13,8 +12,8 @@ import type { Project } from "../data/projects";
    Cycling four directions still reads as a converge-from-all-sides scatter. */
 const FLY_CYCLE: FlyDirection[] = ["left", "top", "right", "bottom"];
 
-/** Starts after the three prominent rows, and caps so card 18 isn't held back. */
-const loadDelay = (i: number) => 0.24 + Math.min(i * 0.035, 0.35);
+/** Starts after the four prominent tiles, and caps so the last card isn't held back. */
+const loadDelay = (i: number) => 0.32 + Math.min(i * 0.035, 0.35);
 
 export default function AllProjectsGrid({ visible }: { visible: Project[] }) {
   const [open, setOpen] = useState<string | null>(null);
@@ -114,31 +113,14 @@ export default function AllProjectsGrid({ visible }: { visible: Project[] }) {
     children.splice(
       insertAt,
       0,
-      <div
+      <ProjectPanel
         key="all-projects-panel"
-        id="all-projects-panel"
-        ref={panelRef}
-        role="region"
-        aria-labelledby={`ap-trigger-${expanded.slug}`}
-        className="animate-rise-in col-span-full rounded-xl border border-carolina/40 bg-tile-hi p-6"
-      >
-        <div className="mb-5 flex items-baseline justify-between gap-4">
-          <h4 className="font-display text-xl text-chalk">{expanded.title}</h4>
-          {expanded.year && (
-            <span className="shrink-0 text-xs text-ash">{expanded.year}</span>
-          )}
-        </div>
-
-        <ProjectDetail project={expanded} />
-
-        <button
-          type="button"
-          onClick={() => close()}
-          className="mt-6 rounded-md border border-edge px-3 py-2 text-xs text-ash transition-colors hover:border-carolina hover:text-carolina focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-carolina"
-        >
-          Collapse
-        </button>
-      </div>,
+        panelId="all-projects-panel"
+        labelledBy={`ap-trigger-${expanded.slug}`}
+        project={expanded}
+        onClose={close}
+        panelRef={panelRef}
+      />,
     );
   }
 

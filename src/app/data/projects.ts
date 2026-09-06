@@ -21,10 +21,14 @@ export type Project = {
   imageHeight?: number;
 
   /* ── Prominent Projects only ───────────────────────────────────────────
-     Set `featured` on the three that lead the page. The four fields below
-     are the write-up a hiring engineer actually wants; leave any of them
-     out and that row simply doesn't render. */
+     Set `featured` on the four that lead the page as the 2x2 cover grid. The
+     write-up fields below are what a hiring engineer actually wants; leave any
+     of them out and that row simply doesn't render. */
   featured?: boolean;
+  /** Full-bleed background art for the prominent tile. Distinct from `image`,
+      which is the screenshot inside the expanded panel. Omit to get the
+      `.cover-grid` texture instead. */
+  cover?: string;
   problem?: string;
   role?: string;
   challenge?: string;
@@ -74,19 +78,45 @@ export const TECH: Record<string, Tech> = {
 };
 
 /* Ordered strongest-first: this is the order a recruiter reads them in. The
-   three `featured` entries lead the page as Prominent Projects and ALSO
-   appear in the All Projects grid below — one entry, both places. */
+   four `featured` entries lead the page as the Prominent Projects 2x2 grid and
+   ALSO appear in the All Projects grid below — one entry, both places. Array
+   order is tile order, so reorder these to reorder the 2x2. */
 export const projects: Project[] = [
-  /* ─────────────────────────────────────────────────────────────────────
-     TODO(austin): the three Prominent Projects. Fill these in and delete
-     the TODO text. Everything below this block is already real.
-     ───────────────────────────────────────────────────────────────────── */
+  /* ── The four Prominent Projects, in 2x2 order ──────────────────────── */
+  {
+    slug: "extro-stock-forecaster",
+    title: "Extro — Stock Market Forecaster",
+    summary:
+      "A full-stack portfolio simulator that pairs fictional balances with AI-generated investment feedback.",
+    year: "June 2025 — Present",
+    featured: true,
+    cover: "/extro-cover.png",
+    tech: [
+      TECH.next,
+      TECH.ts,
+      TECH.react,
+      TECH.python,
+      TECH.flask,
+      TECH.openai,
+      TECH.clerk,
+      TECH.sql,
+      TECH.aws,
+      TECH.api,
+    ],
+    bullets: [
+      "Developed a full-stack financial dashboard where users log in and simulate long-term portfolio growth using fictional balances.",
+      "Integrated OpenAI API using Flask in the backend to generate personalized investment advice. The AI analyzes user-selected companies, provides performance feedback, profit summaries, and recommendations on whether to invest.",
+      "Implemented secure authentication and data persistence using Clerk (login) and a Flask + SQL RESTful API architecture deployed on AWS EC2.",
+      "Result: Built an intelligent, cloud-ready simulation platform combining AI reasoning with financial analytics to enhance user engagement and learning in investing.",
+    ],
+  },
   {
     slug: "vechter-field-diagnostic",
     title: "Vechter Home Solutions — Field Diagnostic App",
     summary: "Built and shipped a full-stack diagnostic web app used by field sales reps to test client systems on-site and generate tailored recommendations, contributing to $100K–$250K in weekly revenue.",
     year: "2026",
     featured: true,
+    cover: "/vechter-cover.png",
     tech: [
       TECH.ts,
       TECH.react,
@@ -111,6 +141,7 @@ export const projects: Project[] = [
     summary: "Helped create an application with a student side and a professor side at UNC Chapel Hill to help student's understand course work directly on the site without needing to go anywhere else. Professors are able to drop course work in and student's can use AI to help understand certain parts of it. Group project with 3 other people.",
     year: "2026",
     featured: true,
+    cover: "/learnwithai-cover.png",
     tech: [
       TECH.angular,
       TECH.fastapi,
@@ -169,31 +200,6 @@ export const projects: Project[] = [
   },
 
   /* ── Real projects ───────────────────────────────────────────────────── */
-  {
-    slug: "extro-stock-forecaster",
-    title: "Extro — Stock Market Forecaster",
-    summary:
-      "A full-stack portfolio simulator that pairs fictional balances with AI-generated investment feedback.",
-    year: "June 2025 — Present",
-    tech: [
-      TECH.next,
-      TECH.ts,
-      TECH.react,
-      TECH.python,
-      TECH.flask,
-      TECH.openai,
-      TECH.clerk,
-      TECH.sql,
-      TECH.aws,
-      TECH.api,
-    ],
-    bullets: [
-      "Developed a full-stack financial dashboard where users log in and simulate long-term portfolio growth using fictional balances.",
-      "Integrated OpenAI API using Flask in the backend to generate personalized investment advice. The AI analyzes user-selected companies, provides performance feedback, profit summaries, and recommendations on whether to invest.",
-      "Implemented secure authentication and data persistence using Clerk (login) and a Flask + SQL RESTful API architecture deployed on AWS EC2.",
-      "Result: Built an intelligent, cloud-ready simulation platform combining AI reasoning with financial analytics to enhance user engagement and learning in investing.",
-    ],
-  },
   {
     slug: "haybale-game",
     title: "HayBale Game",

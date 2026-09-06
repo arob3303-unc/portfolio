@@ -16,7 +16,7 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
 
 /**
  * Owns the filter state for the projects page. The filter narrows All Projects
- * only — the prominent three are always shown.
+ * only — the four prominent projects are always shown.
  */
 export default function ProjectsExplorer() {
   const [selected, setSelected] = useState<Set<string>>(new Set());
