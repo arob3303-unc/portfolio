@@ -69,13 +69,12 @@ export default function Home() {
       >
         <TileTitle>Who am I</TileTitle>
         <p className="mt-3 text-sm leading-relaxed text-chalk/90 transition-colors duration-300 group-hover:text-ink sm:text-base">
-          I&apos;m a recent Graduate of 
-          the University of North Carolina at Chapel Hill. I have a deep
-          curiosity to understand how the world works. I think understanding how
-          people think and learning code is essential to create innovative
-          products that will transcend this world. I enjoy diving into
-          challenges, learning new concepts, and applying them to make a
-          positive impact.
+          I&apos;m a recent graduate of the University of North Carolina at
+          Chapel Hill. I have a deep curiosity to understand how the world
+          works. I think understanding how people think and learning code is
+          essential to create innovative products that will transcend this
+          world. I enjoy diving into challenges, learning new concepts, and
+          applying them to make a positive impact.
         </p>
       </Tile>
 
@@ -204,7 +203,7 @@ export default function Home() {
           {[
             {
               when: "Now",
-              what: "Developer / Sales rep at Vechter Home Solutions. Working on building websites for local businesses.",
+              what: "Developer / Sales rep at Vechter Home Solutions. Also, building my finance app :)",
             },
             {
               when: "2023 — 2026",

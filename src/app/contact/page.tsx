@@ -30,7 +30,7 @@ export default function ContactPage() {
         Contact
       </h1>
       <p className="mb-8 max-w-2xl text-sm text-ash">
-        Looking for a software engineering internship. Send me a message and
+        Looking for new grad software engineering roles. Send me a message and
         I&apos;ll reply.
       </p>
 
