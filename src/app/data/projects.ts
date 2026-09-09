@@ -91,7 +91,7 @@ export const projects: Project[] = [
     year: "June 2025 — Present",
     featured: true,
     cover: "/extro-cover.png",
-    site: "https://financial-dashboard-gilt-delta.vercel.app/black-swan",
+    site: "https://financial-dashboard-gilt-delta.vercel.app",
     tech: [
       TECH.next,
       TECH.ts,

@@ -135,7 +135,7 @@ order; reorder that object to reorder the bar.
 Content still owed before deploying:
 
 - **Extro** has a live `site`
-  (https://financial-dashboard-gilt-delta.vercel.app/black-swan) but still no `problem` /
+  (https://financial-dashboard-gilt-delta.vercel.app) but still no `problem` /
   `role` / `challenge` / `outcome` and no `repo`, so its panel is bullets + tech chips +
   one link — thin for a tile flagged as one of the best four.
 - **Anti-cheat** has its four write-up fields commented out, and no cover art.
