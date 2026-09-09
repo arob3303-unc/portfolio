@@ -8,7 +8,7 @@ import { projects } from "../data/projects";
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
   return (
-    <h2 className="mb-5 font-display text-2xl text-chalk sm:text-3xl">
+    <h2 className="mb-5 text-center font-display text-2xl text-chalk sm:text-3xl">
       {children}
     </h2>
   );

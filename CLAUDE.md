@@ -120,7 +120,10 @@ fixed; what remains is Austin filling in content.
 3. **All Projects** — every project as a square, 1/2/3 columns, capped at 3 across.
    Deliberately kept plain: the contrast with the 2x2 above is what marks the good ones.
 
-Clicking any card **expands it inline** — no modal. One card open per section.
+Clicking any card **expands it inline** — no modal. One card open per section. Section
+titles are centred over their grids. In the expanded panel, a project's `site` renders
+first as a **solid Carolina "View live site" button** (`LinkButton variant="primary"`)
+while `repo` and `links` stay outlined — the deployed thing is what a recruiter clicks.
 
 **The data model is the thing to edit.** `src/app/data/projects.ts` is a single
 `projects` array of 12 live entries (plus 6 commented-out placeholders). The four

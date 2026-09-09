@@ -82,14 +82,36 @@ function Field({ label, value }: { label: string; value?: string }) {
   );
 }
 
-function LinkButton({ href, label }: { href: string; label: string }) {
+/**
+ * `primary` is the deployed-site link. It gets a solid Carolina fill and black
+ * text rather than the outline every other link wears, because a recruiter
+ * skimming the panel should find the thing they can click and *use* without
+ * reading the row — the outline buttons all look alike at a glance.
+ */
+function LinkButton({
+  href,
+  label,
+  variant = "default",
+}: {
+  href: string;
+  label: string;
+  variant?: "default" | "primary";
+}) {
+  const base =
+    "inline-flex items-center gap-2 rounded-md px-3 py-2 text-xs transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-carolina focus-visible:ring-offset-2 focus-visible:ring-offset-tile-hi";
+  const skin =
+    variant === "primary"
+      ? "border border-carolina bg-carolina font-semibold text-ink hover:bg-[#69b0e0] hover:border-[#69b0e0]"
+      : "border border-edge text-chalk hover:border-carolina hover:text-carolina";
+
   return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-flex items-center gap-2 rounded-md border border-edge px-3 py-2 text-xs text-chalk transition-colors duration-200 hover:border-carolina hover:text-carolina focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-carolina"
-    >
+    <a href={href} target="_blank" rel="noopener noreferrer" className={`${base} ${skin}`}>
+      {variant === "primary" && (
+        <span
+          aria-hidden="true"
+          className="h-1.5 w-1.5 shrink-0 rounded-full bg-ink/70 motion-safe:animate-pulse"
+        />
+      )}
       {label} <span aria-hidden="true">&rarr;</span>
     </a>
   );
@@ -143,10 +165,14 @@ export default function ProjectDetail({ project }: { project: Project }) {
 
       <TechChips tech={project.tech} />
 
+      {/* Live site leads the row: it is the one link that shows the work
+          running, so it should be the first thing the eye lands on. */}
       {(project.repo || project.site || project.links?.length) && (
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap items-center gap-2">
+          {project.site && (
+            <LinkButton href={project.site} label="View live site" variant="primary" />
+          )}
           {project.repo && <LinkButton href={project.repo} label="GitHub repo" />}
-          {project.site && <LinkButton href={project.site} label="Live site" />}
           {project.links?.map((l) => (
             <LinkButton key={l.href} href={l.href} label={l.label} />
           ))}
