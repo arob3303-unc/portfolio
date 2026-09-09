@@ -113,8 +113,8 @@ fixed; what remains is Austin filling in content.
    cover-art tiles**: the project's `cover` screenshot full-bleed behind the title, under a
    `bg-gradient-to-t from-black/95` scrim so the title stays readable on light artwork
    (the Vechter cover is near-white — it sets the floor for how strong that scrim has to
-   be). The grid is capped at `max-w-[1200px]` and centred, tiles are `aspect-[4/3]`
-   (~585x440), and hover shows a Tar Heel blue inset ring only — no fill, no zoom, because
+   be). The grid is capped at `max-w-[880px]` and centred, tiles are `aspect-[4/3]`
+   (~425x320), and hover shows a Tar Heel blue inset ring only — no fill, no zoom, because
    a blue wash over a screenshot reads as a broken image. A featured project with no
    `cover` gets the `.cover-grid` texture from `globals.css` instead.
 3. **All Projects** — every project as a square, 1/2/3 columns, capped at 3 across.
@@ -134,12 +134,13 @@ order; reorder that object to reorder the bar.
 
 Content still owed before deploying:
 
-- **Extro** has no `problem` / `role` / `challenge` / `outcome` and no `repo` / `site` /
-  `links`, so its panel is bullets + tech chips only — thin for a tile flagged as one of
-  the best four.
+- **Extro** has a live `site`
+  (https://financial-dashboard-gilt-delta.vercel.app/black-swan) but still no `problem` /
+  `role` / `challenge` / `outcome` and no `repo`, so its panel is bullets + tech chips +
+  one link — thin for a tile flagged as one of the best four.
 - **Anti-cheat** has its four write-up fields commented out, and no cover art.
-- `public/learnwithai-cover.png` is only 524x300; it upscales visibly in a ~585px tile.
-  Re-export at >=1200px wide.
+- `public/learnwithai-cover.png` is only 524x300; it upscales in a ~425px tile.
+  Re-export at >=900px wide.
 
 **Two invariants worth not breaking:**
 

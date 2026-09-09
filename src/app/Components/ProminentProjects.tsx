@@ -55,8 +55,8 @@ export default function ProminentProjects() {
         from={FROM[i % FROM.length]}
         delay={i * 0.08}
         hoverable={false}
-        // 4:3 rather than a true square: at two columns of a 1200px grid a
-        // square tile is ~585px tall, which is a wall of scroll before the
+        // 4:3 rather than a true square: at two columns a square tile is
+        // taller than it is useful, which is a wall of scroll before the
         // All Projects section.
         className={`!p-0 aspect-[4/3] ${isOpen ? "border-carolina/40" : ""}`}
       >
@@ -71,7 +71,7 @@ export default function ProminentProjects() {
             {...(isOpen ? { "aria-controls": "prominent-panel" } : {})}
             onClick={() => (isOpen ? close(false) : setOpen(p.slug))}
             // `relative` so the fill image anchors to the button, not the Tile.
-            className={`relative flex h-full w-full flex-col justify-end p-6 text-left ring-inset ring-carolina transition-shadow duration-200 hover:ring-2 focus-visible:outline-none focus-visible:ring-2 ${
+            className={`relative flex h-full w-full flex-col justify-end p-5 text-left ring-inset ring-carolina transition-shadow duration-200 hover:ring-2 focus-visible:outline-none focus-visible:ring-2 ${
               isOpen ? "ring-2" : ""
             }`}
           >
@@ -80,7 +80,7 @@ export default function ProminentProjects() {
                 src={p.cover}
                 alt=""
                 fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1264px) 50vw, 585px"
+                sizes="(max-width: 640px) 100vw, (max-width: 944px) 50vw, 425px"
                 className="object-cover"
                 priority={i < 2}
               />
@@ -95,8 +95,8 @@ export default function ProminentProjects() {
               className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/20"
             />
 
-            <span className="relative flex flex-col gap-3">
-              <span className="font-display text-2xl leading-tight text-chalk sm:text-3xl">
+            <span className="relative flex flex-col gap-2">
+              <span className="font-display text-xl leading-tight text-chalk sm:text-2xl">
                 {p.title}
               </span>
               {p.year && <span className="text-xs text-ash">{p.year}</span>}
@@ -140,7 +140,7 @@ export default function ProminentProjects() {
       onKeyDown={(e) => {
         if (e.key === "Escape" && open) close();
       }}
-      className="mx-auto grid w-full max-w-[1200px] grid-cols-1 gap-5 overflow-hidden sm:grid-cols-2"
+      className="mx-auto grid w-full max-w-[880px] grid-cols-1 gap-4 overflow-hidden sm:grid-cols-2"
     >
       {children}
     </div>

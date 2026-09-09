@@ -203,7 +203,7 @@ export default function Home() {
           {[
             {
               when: "Now",
-              what: "Developer / Sales rep at Vechter Home Solutions. Also, building my finance app :)",
+              what: "Developer / Sales rep at Vechter Home Solutions. Also, building side projects!",
             },
             {
               when: "2023 — 2026",
