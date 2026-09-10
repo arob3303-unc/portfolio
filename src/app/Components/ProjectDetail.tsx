@@ -83,35 +83,18 @@ function Field({ label, value }: { label: string; value?: string }) {
 }
 
 /**
- * `primary` is the deployed-site link. It gets a solid Carolina fill and black
- * text rather than the outline every other link wears, because a recruiter
- * skimming the panel should find the thing they can click and *use* without
- * reading the row — the outline buttons all look alike at a glance.
+ * Every project link — live site, repo, write-up — wears the same solid
+ * Carolina fill with black text, so the row reads as a set of things a
+ * recruiter can click rather than as fine print under the write-up.
  */
-function LinkButton({
-  href,
-  label,
-  variant = "default",
-}: {
-  href: string;
-  label: string;
-  variant?: "default" | "primary";
-}) {
-  const base =
-    "inline-flex items-center gap-2 rounded-md px-3 py-2 text-xs transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-carolina focus-visible:ring-offset-2 focus-visible:ring-offset-tile-hi";
-  const skin =
-    variant === "primary"
-      ? "border border-carolina bg-carolina font-semibold text-ink hover:bg-[#69b0e0] hover:border-[#69b0e0]"
-      : "border border-edge text-chalk hover:border-carolina hover:text-carolina";
-
+function LinkButton({ href, label }: { href: string; label: string }) {
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer" className={`${base} ${skin}`}>
-      {variant === "primary" && (
-        <span
-          aria-hidden="true"
-          className="h-1.5 w-1.5 shrink-0 rounded-full bg-ink/70 motion-safe:animate-pulse"
-        />
-      )}
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center gap-2 rounded-md border border-carolina bg-carolina px-3 py-2 text-xs font-semibold text-ink transition-colors duration-200 hover:border-[#69b0e0] hover:bg-[#69b0e0] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-carolina focus-visible:ring-offset-2 focus-visible:ring-offset-tile-hi"
+    >
       {label} <span aria-hidden="true">&rarr;</span>
     </a>
   );
@@ -170,7 +153,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
       {(project.repo || project.site || project.links?.length) && (
         <div className="flex flex-wrap items-center gap-2">
           {project.site && (
-            <LinkButton href={project.site} label="View live site" variant="primary" />
+            <LinkButton href={project.site} label="View live site" />
           )}
           {project.repo && <LinkButton href={project.repo} label="GitHub repo" />}
           {project.links?.map((l) => (

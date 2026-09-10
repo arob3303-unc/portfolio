@@ -121,9 +121,9 @@ fixed; what remains is Austin filling in content.
    Deliberately kept plain: the contrast with the 2x2 above is what marks the good ones.
 
 Clicking any card **expands it inline** — no modal. One card open per section. Section
-titles are centred over their grids. In the expanded panel, a project's `site` renders
-first as a **solid Carolina "View live site" button** (`LinkButton variant="primary"`)
-while `repo` and `links` stay outlined — the deployed thing is what a recruiter clicks.
+titles are centred over their grids. In the expanded panel, every link — `site`
+("View live site", listed first), `repo`, and any `links` — is a **solid Carolina button
+with black text** (`LinkButton`), not an outline: the row should read as things to click.
 
 **The data model is the thing to edit.** `src/app/data/projects.ts` is a single
 `projects` array of 12 live entries (plus 6 commented-out placeholders). The four
