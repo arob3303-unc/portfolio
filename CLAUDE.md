@@ -126,7 +126,7 @@ titles are centred over their grids. In the expanded panel, every link — `site
 with black text** (`LinkButton`), not an outline: the row should read as things to click.
 
 **The data model is the thing to edit.** `src/app/data/projects.ts` is a single
-`projects` array of 12 live entries (plus 6 commented-out placeholders). The four
+`projects` array of 15 live entries (plus 6 commented-out placeholders). The four
 `featured: true` entries lead the page *and* appear in the grid — one entry, both places,
 no duplication. **Array order is tile order** in the 2x2, so reorder the entries to
 rearrange it. `cover` is the tile background and is separate from `image`, which is the
@@ -170,7 +170,8 @@ Content still owed before deploying:
   `Java.png`, `HTML5.png`, `CSS3.png`, `PyTorch.png`, `ML.png`, `CNN.png`, `Kaggle.png`,
   `OpenAPI.png`, `post.png` (PostgreSQL), `Vercel.png`, `pygame.png`
 - **Project screenshots:** `project1.png`, `bot.png`, `2Dgame.png`, `news.png`, `algo.png`,
-  `drone.png`, `pygamee.jpg`, `auto.png`, `website.png`, `phaser.jpg`, `ai.webp`
+  `drone.png`, `pygamee.jpg`, `website.png`, `phaser.jpg`, `ai.webp`,
+  `crawler.png` (1002x801, the Dungeon Crawler)
 
 ## Working conventions
 

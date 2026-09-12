@@ -43,6 +43,7 @@ export type Project = {
 export const TECH: Record<string, Tech> = {
   python: { src: "/Python.png", label: "Python" },
   java: { src: "/Java.png", label: "Java" },
+  javafx: { label: "JavaFX" },
   ts: { src: "/TypeScript.png", label: "TypeScript" },
   js: { src: "/JavaScript.png", label: "JavaScript" },
   r: { label: "R" },
@@ -50,6 +51,7 @@ export const TECH: Record<string, Tech> = {
   c: { label: "C" },
   prolog: { label: "Prolog" },
   sql: { label: "SQL" },
+  mysql: { label: "MySQL" },
   react: { src: "/React.png", label: "React.js" },
   next: { src: "/Next.js.png", label: "Next.js" },
   angular: { label: "Angular" },
@@ -202,6 +204,57 @@ export const projects: Project[] = [
 
   /* ── Real projects ───────────────────────────────────────────────────── */
   {
+    slug: "tic-tac-toe-fullstack",
+    title: "Tic Tac Toe — Login and Leaderboard",
+    summary:
+      "Full stack Tic Tac Toe with user login, an AI opponent, and a MySQL leaderboard.",
+    year: "July 2025 — Present",
+    site: "https://tic-tac-toe-zeta-rouge.vercel.app/",
+    tech: [TECH.js, TECH.react, TECH.node, TECH.mysql, TECH.sql],
+    bullets: [
+      "Started from the official React tutorial and kept building on it until it became a full stack app.",
+      "Added login and logout backed by a MySQL database so accounts and results persist between sessions.",
+      "Built a leaderboard that tracks wins and losses and updates the standings as games finish.",
+      "Wrote a single player mode so you can play the computer instead of needing a second person.",
+      "Currently moving the database over to AWS RDS so the data lives in the cloud instead of on my machine.",
+    ],
+  },
+  {
+    slug: "yelpy-review-generator",
+    title: "Yelpy — AI Review Generator",
+    summary:
+      "A Next.js app that turns a menu, a name, and a cuisine into restaurant reviews.",
+    year: "November — December 2025",
+    site: "https://comp-560-final-project.vercel.app/",
+    repo: "https://github.com/fishram/COMP.560.Final.Project",
+    tech: [TECH.ts, TECH.react, TECH.next, TECH.openai, TECH.api, TECH.vercel],
+    bullets: [
+      "Final project for COMP 560. You paste in part of a menu, enter the restaurant name and cuisine, and it writes reviews for it.",
+      "Added a sentiment toggle for positive or negative reviews and a picker for generating anywhere from 1 to 10 at a time.",
+      "Built in Next.js and TypeScript, with the generated reviews rendering next to the form as they come back.",
+      "Team project, deployed on Vercel.",
+    ],
+  },
+  {
+    slug: "dungeon-crawler",
+    title: "Dungeon Crawler — 2D Java Game",
+    summary:
+      "A 2D dungeon adventure built in JavaFX on an MVC architecture for COMP 301.",
+    year: "April 2025",
+    image: "/crawler.png",
+    imageWidth: 1002,
+    imageHeight: 801,
+    repo: "https://github.com/arob3303-unc/COMP-301-2D-Java",
+    tech: [TECH.java, TECH.javafx],
+    bullets: [
+      "Final project for COMP 301 at UNC. You move through a dungeon collecting gold while avoiding enemies.",
+      "Structured it around Model View Controller so the game logic, the rendering, and the input handling all stayed separate.",
+      "Built the interface in JavaFX, handling the 2D rendering for the rooms, the treasure, and the enemies.",
+      "Rewrote the main game loop from O(n²) down to O(n), which got rid of the lag and kept the framerate smooth.",
+      "Good reinforcement of the core OOP ideas: inheritance, polymorphism, and encapsulation.",
+    ],
+  },
+  {
     slug: "haybale-game",
     title: "HayBale Game",
     summary:
@@ -327,20 +380,6 @@ export const projects: Project[] = [
       "Two player game developed in PyGame.",
       "Fairly simple but first project using PyGame and used it as a starter for my HayBale game.",
       "One player uses WASD and another uses the arrow keys and they shoot each other. Both have 10 total health.",
-    ],
-  },
-  {
-    slug: "python-autoclicker",
-    title: "Python Autoclicker",
-    summary:
-      "A small utility that automated the repetitive clicking out of a daily task.",
-    image: "/auto.png",
-    imageWidth: 1800,
-    imageHeight: 1750,
-    tech: [TECH.python],
-    bullets: [
-      "Developed for personal use.",
-      "Allowed me to automate certain tasks that involved repeated clicks.",
     ],
   },
   {
